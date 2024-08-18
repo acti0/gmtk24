@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhhhk6lpv0ycl"]
+
+[ext_resource type="Script" path="res://src/ui/menu_handler.gd" id="2_36wd4"]
+[ext_resource type="Script" path="res://src/ui/hud.gd" id="2_62bv6"]
+[ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="2_alb84"]
+[ext_resource type="Texture2D" uid="uid://cqnaayatiemio" path="res://assets/img/crosshair_black.png" id="2_igaed"]
+[ext_resource type="PackedScene" uid="uid://8ip80bwjxl0q" path="res://src/2/world.tscn" id="2_ma3x8"]
+[ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/2/theme/game_theme.tres" id="3_mo1xt"]
+
+[node name="Game" type="Node"]
+
+[node name="World2" parent="." instance=ExtResource("2_ma3x8")]
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_62bv6")
+
+[node name="Crosshair" type="TextureRect" parent="HUD"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_igaed")
+expand_mode = 1
+
+[node name="Menu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_36wd4")
+
+[node name="PauseMenu" type="Control" parent="Menu"]
+unique_name_in_owner = true
+process_mode = 2
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_mo1xt")
+script = ExtResource("2_alb84")
+
+[node name="PanelContainer" type="PanelContainer" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PauseMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "KEYBINDINGS"
+horizontal_alignment = 1
+
+[node name="KeyBindings" type="GridContainer" parent="Menu/PauseMenu/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="PanelContainer3" type="PanelContainer" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu/PanelContainer3"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+layout_mode = 2
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+layout_mode = 2
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+layout_mode = 2
+text = "Exit"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/PanelContainer2"]
+layout_mode = 2
+text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
+Playtesters: ...
+This game uses Godot State Charts by derkork"
+horizontal_alignment = 1
+
+[connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
+[connection signal="pressed" from="Menu/PauseMenu/PanelContainer3/Menu/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/PanelContainer3/Menu/ExitButton" to="Menu/PauseMenu" method="_on_exit_button_pressed"]

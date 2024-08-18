@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://8ip80bwjxl0q"]
+
+[ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/2/room/base_room.tscn" id="1_7mqfe"]
+[ext_resource type="PackedScene" uid="uid://dgwq86i7ko56v" path="res://src/2/room/copy_room.tscn" id="2_boyk8"]
+[ext_resource type="PackedScene" uid="uid://d1sheic6f48h7" path="res://src/2/room/copy_room_small.tscn" id="3_1eq4n"]
+[ext_resource type="PackedScene" uid="uid://bnr53p6hb8opr" path="res://src/2/player/player.tscn" id="4_6xq0s"]
+[ext_resource type="Script" path="res://src/world/death_plane.gd" id="4_sw6lq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_md2f2"]
+size = Vector3(100, 1, 100)
+
+[node name="World" type="Node3D"]
+
+[node name="BaseRoom" parent="." instance=ExtResource("1_7mqfe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CopyRoom" parent="." instance=ExtResource("2_boyk8")]
+transform = Transform3D(24, 0, 0, 0, 24, 0, 0, 0, 24, 0, -12, 0)
+
+[node name="CopyRoom2" parent="." instance=ExtResource("3_1eq4n")]
+transform = Transform3D(0.042, 0, 0, 0, 0.042, 0, 0, 0, 0.042, 0, 1.021, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_6xq0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 11, 0)
+shadow_enabled = true
+shadow_opacity = 0.8
+metadata/_edit_lock_ = true
+
+[node name="DeathPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+collision_layer = 0
+collision_mask = 34
+monitorable = false
+script = ExtResource("4_sw6lq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathPlane"]
+shape = SubResource("BoxShape3D_md2f2")
+
+[connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]

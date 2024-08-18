@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bucg0ef5hrchr"]
+
+[ext_resource type="Script" path="res://src/world/tiles/tile.gd" id="1_em527"]
+[ext_resource type="PackedScene" uid="uid://cgv3jlruluylb" path="res://src/world/tiles/wall.tscn" id="2_m0d3n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_1qhvs"]
+size = Vector3(3, 1, 3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cnpdm"]
+points = PackedVector3Array(-1.5, -0.5, -1.5, -1.5, 0.5, -1.5, 1.5, -0.5, -1.5, -1.5, -0.5, 1.5, -1.5, 0.5, 1.5, 1.5, 0.5, -1.5, 1.5, -0.5, 1.5, 1.5, 0.5, 1.5)
+
+[node name="Tile" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 12
+gravity_scale = 0.0
+script = ExtResource("1_em527")
+
+[node name="Ground" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1qhvs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_cnpdm")
+
+[node name="Wall" parent="." instance=ExtResource("2_m0d3n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -1.4)
