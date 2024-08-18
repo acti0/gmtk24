@@ -61,7 +61,7 @@ grow_vertical = 2
 theme = ExtResource("3_mo1xt")
 script = ExtResource("2_alb84")
 
-[node name="PanelContainer" type="PanelContainer" parent="Menu/PauseMenu"]
+[node name="Controls" type="PanelContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -71,20 +71,20 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PauseMenu/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PauseMenu/Controls"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Menu/PauseMenu/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Menu/PauseMenu/Controls/VBoxContainer"]
 layout_mode = 2
 text = "KEYBINDINGS"
 horizontal_alignment = 1
 
-[node name="KeyBindings" type="GridContainer" parent="Menu/PauseMenu/PanelContainer/VBoxContainer"]
+[node name="KeyBindings" type="GridContainer" parent="Menu/PauseMenu/Controls/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="PanelContainer3" type="PanelContainer" parent="Menu/PauseMenu"]
+[node name="ActualMenuPart" type="PanelContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,23 +98,23 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu/PanelContainer3"]
+[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu/ActualMenuPart"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+[node name="Title" type="Label" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
 layout_mode = 2
 text = "GAME PAUSED"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
 layout_mode = 2
 text = "Resume"
 
-[node name="ExitButton" type="Button" parent="Menu/PauseMenu/PanelContainer3/Menu"]
+[node name="ExitButton" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
 layout_mode = 2
 text = "Exit"
 
-[node name="PanelContainer2" type="PanelContainer" parent="Menu/PauseMenu"]
+[node name="Info" type="PanelContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -127,13 +127,13 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Label" type="Label" parent="Menu/PauseMenu/PanelContainer2"]
+[node name="Label" type="Label" parent="Menu/PauseMenu/Info"]
 layout_mode = 2
 text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
-Playtesters: ...
+
 This game uses Godot State Charts by derkork"
 horizontal_alignment = 1
 
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
-[connection signal="pressed" from="Menu/PauseMenu/PanelContainer3/Menu/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Menu/PauseMenu/PanelContainer3/Menu/ExitButton" to="Menu/PauseMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ExitButton" to="Menu/PauseMenu" method="_on_exit_button_pressed"]

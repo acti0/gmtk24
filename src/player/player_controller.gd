@@ -31,7 +31,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var collider = interactable_ray.get_collider()
 			if collider is ShrinkableObject:
 				collider.interact()
-			elif collider is RigidBody3D:
+			elif collider is BaseObject:
 				if object:
 					object = null
 				else:

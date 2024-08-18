@@ -6,5 +6,7 @@ func _ready() -> void:
 
 ## Move the RigidBody3D into position and unfreeze
 func _on_new_object_shrunk(obj_name: String, obj_position: Vector3) -> void:
-	$Cube_Base.global_position = obj_position
-	$Cube_Base.freeze = false
+	for child in get_children():
+		if child is BaseObject and child.obj_name == obj_name:
+			child.global_position = obj_position
+			child.freeze = false

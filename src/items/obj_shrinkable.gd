@@ -1,5 +1,6 @@
-class_name ShrinkableObject extends StaticBody3D
+class_name ShrinkableObject extends Node3D
 
+@export var obj_name: String
 @export var shrink_speed: float = 1
 var shrinking: bool = false
 
@@ -11,7 +12,7 @@ func _physics_process(delta: float) -> void:
 		if scale.x < (1.0/24.0):
 			scale = Vector3(1.0/24.0, 1.0/24.0, 1.0/24.0)
 			shrinking = false
-			EventBus.new_object_shrunk.emit(name, global_position)
+			EventBus.new_object_shrunk.emit(obj_name, global_position)
 			queue_free()
 
 ## Start rescaling the object
