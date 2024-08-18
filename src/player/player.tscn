@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bnr53p6hb8opr"]
 
-[ext_resource type="Script" path="res://src/2/player/player.gd" id="1_lmaa6"]
-[ext_resource type="Script" path="res://src/2/player/player_controller.gd" id="1_xfp33"]
+[ext_resource type="Script" path="res://src/player/player.gd" id="1_lmaa6"]
+[ext_resource type="Script" path="res://src/player/player_controller.gd" id="1_xfp33"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_00a3i"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_6tv36"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_g8366"]
@@ -24,7 +24,6 @@ albedo_color = Color(0.270588, 1, 1, 1)
 size = Vector3(0.4, 1.8, 0.4)
 
 [node name="Player" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 collision_layer = 2
 collision_mask = 29
 platform_floor_layers = 4294967269

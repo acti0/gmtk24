@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://d1sheic6f48h7"]
 
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="1_1ydjs"]
-[ext_resource type="Script" path="res://src/2/items/obj_copy.gd" id="2_ku60c"]
+[ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_ku60c"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xhghb"]
 size = Vector3(2, 1, 2)
