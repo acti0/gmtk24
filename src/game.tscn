@@ -19,6 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("3_mo1xt")
 script = ExtResource("2_62bv6")
 
 [node name="Crosshair" type="TextureRect" parent="HUD"]
@@ -36,6 +37,25 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_igaed")
 expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -191.5
+offset_right = 191.5
+offset_bottom = 59.0
+grow_horizontal = 2
+
+[node name="FinishLabel" type="Label" parent="HUD/PanelContainer"]
+layout_mode = 2
+text = "Congratulations!
+You've reached the end - thank you for playing :)
+
+(You can now enable high jumps by pressing F1)"
+horizontal_alignment = 1
 
 [node name="Menu" type="Control" parent="."]
 process_mode = 3
@@ -110,9 +130,13 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Resume"
 
+[node name="ResetObjects" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
+layout_mode = 2
+text = "Reset Objects"
+
 [node name="ExitButton" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
 layout_mode = 2
-text = "Exit"
+text = "Quit Game"
 
 [node name="Info" type="PanelContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
@@ -134,6 +158,16 @@ text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
 External assets: This game uses Godot State Charts by derkork"
 horizontal_alignment = 1
 
+[node name="HintLabel" type="Label" parent="Menu/PauseMenu"]
+layout_mode = 0
+offset_left = 645.0
+offset_top = 326.0
+offset_right = 1098.0
+offset_bottom = 375.0
+text = "<- Use this if objects got stuck or you can't find them again
+     It will spawn all found objects in front of the map center"
+
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
 [connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ResetObjects" to="Menu/PauseMenu" method="_on_reset_objects_pressed"]
 [connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ExitButton" to="Menu/PauseMenu" method="_on_exit_button_pressed"]

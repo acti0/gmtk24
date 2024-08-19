@@ -1,13 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1sheic6f48h7"]
+[gd_scene load_steps=3 format=3 uid="uid://d1sheic6f48h7"]
 
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="1_1ydjs"]
-[ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_ku60c"]
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dreew"]
-points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_3t571"]
-size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8oval"]
 size = Vector3(2, 4, 2)
@@ -17,16 +10,6 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
 
 [node name="level" parent="." instance=ExtResource("1_1ydjs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Cube_Copy" type="StaticBody3D" parent="."]
-collision_mask = 0
-script = ExtResource("2_ku60c")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_Copy"]
-shape = SubResource("ConvexPolygonShape3D_dreew")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube_Copy"]
-mesh = SubResource("BoxMesh_3t571")
 
 [node name="Protection" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

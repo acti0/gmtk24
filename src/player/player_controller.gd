@@ -6,6 +6,8 @@ extends Node3D
 @export_range (0, 90) var camera_upper_bounds: float = 90
 @export_range (-90, 0) var camera_lower_bounds: float = -90
 
+@export var cheats_active: bool = false
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var object: RigidBody3D = null
 var prev_object_marker_posiion: Vector3 = Vector3.ZERO
@@ -16,11 +18,18 @@ var prev_object_marker_posiion: Vector3 = Vector3.ZERO
 @onready var object_marker: Marker3D = %ObjectMarker
 @onready var state_chart: StateChart = %StateChart
 
+func _ready() -> void:
+	EventBus.game_finished.connect(_on_game_finished)
+
+## Allow superjump
+func _on_game_finished() -> void:
+	cheats_active = true
+
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_chart.send_event("jump_pressed")
 	
-	if Input.is_action_just_pressed("debug"):
+	if Input.is_action_just_pressed("debug") and cheats_active:
 		if jump_velocity == 5:
 			jump_velocity = 20
 		else:

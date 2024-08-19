@@ -1,9 +1,8 @@
-[gd_scene load_steps=41 format=3 uid="uid://c1lfv6vlh0p8t"]
+[gd_scene load_steps=40 format=3 uid="uid://c1lfv6vlh0p8t"]
 
 [ext_resource type="Script" path="res://src/room/base_room.gd" id="1_q81p4"]
 [ext_resource type="Script" path="res://src/items/obj_base.gd" id="2_dpfvx"]
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="3_30e00"]
-[ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="4_mbdma"]
 [ext_resource type="Texture2D" uid="uid://3kqtj0av73my" path="res://assets/textures/stone.png" id="4_x5es0"]
 [ext_resource type="Texture2D" uid="uid://ctgxpmy5altmn" path="res://assets/textures/ruler.png" id="5_e2l7d"]
 [ext_resource type="Texture2D" uid="uid://dyy3ic2fncw3d" path="res://assets/textures/wanderer.png" id="6_2lyja"]
@@ -56,7 +55,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c804e")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4nd8d"]
-size = Vector3(0.270081, 0.154811, 0.0299683)
+size = Vector3(0.270081, 0.0350984, 0.0688934)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0lx0j"]
 size = Vector3(0.572632, 0.129913, 0.199707)
@@ -140,7 +139,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_jn4v6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00pb8"]
-size = Vector3(0.230728, 0.0319824, 0.171539)
+size = Vector3(0.230728, 0.0560913, 0.171539)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o36d0"]
 resource_name = "Material"
@@ -341,7 +340,7 @@ mesh = SubResource("ArrayMesh_0ekdp")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ruler_Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000396729, 0.0748782, 0.000152588)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000396729, -0.000962825, -6.86599e-05)
 shape = SubResource("BoxShape3D_4nd8d")
 
 [node name="Bridge_Base" type="RigidBody3D" parent="."]
@@ -374,7 +373,7 @@ mesh = SubResource("ArrayMesh_5y14v")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Book_Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000221252, 0.000610352, 0.00242615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000221252, 0.00112915, 0.00242615)
 shape = SubResource("BoxShape3D_00pb8")
 
 [node name="Bottle_Base" type="RigidBody3D" parent="."]
@@ -393,6 +392,7 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_aglgw")
 
 [node name="Tower_Base" type="RigidBody3D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
@@ -409,6 +409,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000549316, 0.0215759, 0.00
 shape = SubResource("BoxShape3D_jur8w")
 
 [node name="Package_Base" type="RigidBody3D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
@@ -426,6 +427,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_hbxle")
 
 [node name="Wood_Base" type="RigidBody3D" parent="."]
+visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
@@ -441,7 +443,5 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000305176, -0.000259399, 0.000549316)
 shape = SubResource("BoxShape3D_kctsl")
 
-[node name="GoalLabel3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0326234, 2.13995, -1.05091)
-text = "GOAL"
-script = ExtResource("4_mbdma")
+[node name="ResetMarker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
