@@ -1,6 +1,14 @@
 extends Menu
 
 @onready var key_bind_display: GridContainer = %KeyBindings
+@onready var cheats_container = %CheatsContainer
+@onready var mouse_sense_slider = %MouseSenseSlider
+
+func _ready() -> void:
+	EventBus.game_finished.connect(_on_game_finished)
+
+func _on_game_finished() -> void:
+	cheats_container.show()
 
 func open() -> void:
 	# Only use display actions without "ui"-prefix
@@ -30,10 +38,14 @@ func close() -> void:
 func _on_resume_button_pressed() -> void:
 	close()
 
-
-func _on_exit_button_pressed() -> void:
-	get_tree().quit()
-
-
 func _on_reset_objects_pressed() -> void:
 	EventBus.reset_objects.emit()
+
+func _on_big_world_check_button_pressed() -> void:
+	EventBus.big_world_toggled.emit()
+
+func _on_cheats_check_button_pressed() -> void:
+	EventBus.cheats_toggled.emit()
+
+func _on_mouse_sense_slider_drag_ended(value_changed: bool) -> void:
+	EventBus.mouse_sense_changed.emit(mouse_sense_slider.value)

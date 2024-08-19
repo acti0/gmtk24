@@ -32,17 +32,39 @@ import_script/path=""
 _subresources={
 "nodes": {
 "PATH:3_tiles": {
+"generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
-"PATH:Book": {
-"import/skip_import": true
+"PATH:3_tiles_001": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
 },
-"PATH:Bottle": {
-"import/skip_import": true
+"PATH:3_tiles_002": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
 },
-"PATH:Bridge": {
-"import/skip_import": true
+"PATH:3_tiles_003": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:3_tiles_004": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:3_tiles_005": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:3_tiles_006": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
 },
 "PATH:Ground": {
 "generate/physics": true,
@@ -74,25 +96,29 @@ _subresources={
 "physics/mask": 0,
 "physics/shape_type": 2
 },
-"PATH:Package": {
-"import/skip_import": true
-},
 "PATH:Player": {
 "import/skip_import": true
 },
-"PATH:Ruler": {
-"import/skip_import": true
+"PATH:Rock": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
 },
 "PATH:Stairs": {
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
-"PATH:Tower": {
+"PATH:Tower low": {
 "import/skip_import": true
 },
-"PATH:Wood": {
+"PATH:Tower_round": {
 "import/skip_import": true
+},
+"PATH:tile": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
 }
 }
 }

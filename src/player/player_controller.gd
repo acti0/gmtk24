@@ -2,6 +2,7 @@ extends Node3D
 
 @export var player: CharacterBody3D
 @export var speed: float = 5.0
+@export var mouse_speed: float = 1
 @export var jump_velocity: float = 5
 @export_range (0, 90) var camera_upper_bounds: float = 90
 @export_range (-90, 0) var camera_lower_bounds: float = -90
@@ -19,21 +20,24 @@ var prev_object_marker_posiion: Vector3 = Vector3.ZERO
 @onready var state_chart: StateChart = %StateChart
 
 func _ready() -> void:
-	EventBus.game_finished.connect(_on_game_finished)
+	EventBus.mouse_sense_changed.connect(_on_mouse_sense_changed)
+	EventBus.cheats_toggled.connect(_on_cheats_toggled)
+
+func _on_mouse_sense_changed(new_value: float) -> void:
+	mouse_speed = new_value
 
 ## Allow superjump
-func _on_game_finished() -> void:
-	cheats_active = true
+func _on_cheats_toggled() -> void:
+	if cheats_active: 
+		jump_velocity = 5
+		cheats_active = false
+	else:
+		jump_velocity = 20
+		cheats_active = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_chart.send_event("jump_pressed")
-	
-	if Input.is_action_just_pressed("debug") and cheats_active:
-		if jump_velocity == 5:
-			jump_velocity = 20
-		else:
-			jump_velocity = 5
 	
 	if Input.is_action_just_pressed("interact"):
 		if interactable_ray.is_colliding():
@@ -61,8 +65,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			object.rotation_degrees.z -= 30
 	
 	if event is InputEventMouseMotion:
-		player.rotate_y(-event.relative.x * 0.01)
-		camera.rotate_x(-event.relative.y * 0.01)
+		player.rotate_y(-event.relative.x * 0.01 * mouse_speed)
+		camera.rotate_x(-event.relative.y * 0.01 * mouse_speed)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(camera_lower_bounds), deg_to_rad(camera_upper_bounds))
 
 ## Move held object relative to player cam

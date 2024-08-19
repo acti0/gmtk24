@@ -54,7 +54,7 @@ layout_mode = 2
 text = "Congratulations!
 You've reached the end - thank you for playing :)
 
-(You can now enable high jumps by pressing F1)"
+(You can now enable high jumps in the pause menu)"
 horizontal_alignment = 1
 
 [node name="Menu" type="Control" parent="."]
@@ -71,7 +71,6 @@ script = ExtResource("2_36wd4")
 [node name="PauseMenu" type="Control" parent="Menu"]
 unique_name_in_owner = true
 process_mode = 2
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,39 +103,90 @@ unique_name_in_owner = true
 layout_mode = 2
 columns = 2
 
-[node name="ActualMenuPart" type="PanelContainer" parent="Menu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu"]
+layout_mode = 2
+offset_left = 480.5
+offset_top = 236.5
+offset_right = 671.5
+offset_bottom = 411.5
 
-[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu/ActualMenuPart"]
+[node name="UpperMenuPart" type="PanelContainer" parent="Menu/PauseMenu/Menu"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
+[node name="GamePausedContainer" type="VBoxContainer" parent="Menu/PauseMenu/Menu/UpperMenuPart"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer"]
 layout_mode = 2
 text = "GAME PAUSED"
 horizontal_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
+[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Resume"
 
-[node name="ResetObjects" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
+[node name="LowerMenuPart" type="PanelContainer" parent="Menu/PauseMenu/Menu"]
 layout_mode = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="ResetObjects" type="Button" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Reset Objects"
 
-[node name="ExitButton" type="Button" parent="Menu/PauseMenu/ActualMenuPart/Menu"]
+[node name="MouseSenseContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
 layout_mode = 2
-text = "Quit Game"
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
+layout_mode = 2
+text = "Mouse sense"
+
+[node name="MouseSenseSlider" type="HSlider" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 1.3
+step = 0.05
+value = 1.0
+scrollable = false
+tick_count = 5
+ticks_on_borders = true
+
+[node name="BigWorldContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show extra worlds"
+
+[node name="BigWorldCheckButton" type="CheckButton" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+button_pressed = true
+
+[node name="CheatsContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cheats active"
+
+[node name="CheatsCheckButton" type="CheckButton" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Info" type="PanelContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
@@ -158,16 +208,35 @@ text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
 External assets: This game uses Godot State Charts by derkork"
 horizontal_alignment = 1
 
-[node name="HintLabel" type="Label" parent="Menu/PauseMenu"]
-layout_mode = 0
-offset_left = 645.0
-offset_top = 326.0
-offset_right = 1098.0
-offset_bottom = 375.0
-text = "<- Use this if objects got stuck or you can't find them again
-     It will spawn all found objects in front of the map center"
+[node name="Tutorial" type="PanelContainer" parent="Menu/PauseMenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -464.0
+offset_top = -29.5
+offset_bottom = 29.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HintLabel" type="Label" parent="Menu/PauseMenu/Tutorial"]
+layout_mode = 2
+text = "TUTORIAL
+1. Find odd objects that aren't in the bigger/smaller world
+2. You can interact (E) with objects if the crosshair turns green
+3. Shrink objects with (E)
+4. Pick up/Drop objects with (E)
+5. Rotate picked up objects with (Arrow keys)
+6. Carry them to the table in the world center and place them
+7. Get to the top of the highest mountain
+
+\"Reset Objects\" spawns found objects at the world center"
 
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
-[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ResetObjects" to="Menu/PauseMenu" method="_on_reset_objects_pressed"]
-[connection signal="pressed" from="Menu/PauseMenu/ActualMenuPart/Menu/ExitButton" to="Menu/PauseMenu" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/ResetObjects" to="Menu/PauseMenu" method="_on_reset_objects_pressed"]
+[connection signal="drag_ended" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer/MouseSenseSlider" to="Menu/PauseMenu" method="_on_mouse_sense_slider_drag_ended"]
+[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer/BigWorldCheckButton" to="Menu/PauseMenu" method="_on_big_world_check_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer/CheatsCheckButton" to="Menu/PauseMenu" method="_on_cheats_check_button_pressed"]

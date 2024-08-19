@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c1lfv6vlh0p8t"]
+[gd_scene load_steps=38 format=3 uid="uid://c1lfv6vlh0p8t"]
 
 [ext_resource type="Script" path="res://src/room/base_room.gd" id="1_q81p4"]
 [ext_resource type="Script" path="res://src/items/obj_base.gd" id="2_dpfvx"]
@@ -9,12 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cdypb763oc7gr" path="res://assets/textures/bottle.png" id="7_0qh1g"]
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="8_in5mo"]
 [ext_resource type="Texture2D" uid="uid://bibmif5kmj5sq" path="res://assets/textures/wood.png" id="9_6sbmy"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wnaub"]
-size = Vector3(0.2, 0.2, 0.2)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qiwio"]
-points = PackedVector3Array(0.1, 0.1, 0.1, 0.1, 0.1, -0.1, -0.1, 0.1, 0.1, 0.1, -0.1, 0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1, 0.1, -0.1, -0.1, -0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ewcv"]
 resource_name = "Material"
@@ -313,19 +307,6 @@ script = ExtResource("1_q81p4")
 [node name="level" parent="." instance=ExtResource("3_30e00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Cube_Base" type="RigidBody3D" parent="."]
-collision_layer = 32
-collision_mask = 33
-freeze = true
-script = ExtResource("2_dpfvx")
-obj_name = "cube"
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube_Base"]
-mesh = SubResource("BoxMesh_wnaub")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_Base"]
-shape = SubResource("ConvexPolygonShape3D_qiwio")
-
 [node name="Ruler_Base" type="RigidBody3D" parent="."]
 collision_layer = 32
 collision_mask = 33
@@ -392,7 +373,6 @@ skeleton = NodePath("")
 shape = SubResource("ConvexPolygonShape3D_aglgw")
 
 [node name="Tower_Base" type="RigidBody3D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
@@ -409,7 +389,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000549316, 0.0215759, 0.00
 shape = SubResource("BoxShape3D_jur8w")
 
 [node name="Package_Base" type="RigidBody3D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
@@ -427,7 +406,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("BoxShape3D_hbxle")
 
 [node name="Wood_Base" type="RigidBody3D" parent="."]
-visible = false
 collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
