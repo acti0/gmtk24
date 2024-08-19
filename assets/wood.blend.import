@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmv0ne254viex"
-path="res://.godot/imported/bottle.blend-69d3973647451761c9242b4f10967f9a.scn"
+uid="uid://cioahkggnd60b"
+path="res://.godot/imported/wood.blend-2cf3c91168a95667343586b2fe38424d.scn"
 
 [deps]
 
-source_file="res://assets/bottle.blend"
-dest_files=["res://.godot/imported/bottle.blend-69d3973647451761c9242b4f10967f9a.scn"]
+source_file="res://assets/wood.blend"
+dest_files=["res://.godot/imported/wood.blend-2cf3c91168a95667343586b2fe38424d.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Bottle": {
+"PATH:Wood": {
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2

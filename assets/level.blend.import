@@ -31,6 +31,16 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:3_tiles": {
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Book": {
+"import/skip_import": true
+},
+"PATH:Bottle": {
+"import/skip_import": true
+},
 "PATH:Bridge": {
 "import/skip_import": true
 },
@@ -64,6 +74,12 @@ _subresources={
 "physics/mask": 0,
 "physics/shape_type": 2
 },
+"PATH:Package": {
+"import/skip_import": true
+},
+"PATH:Player": {
+"import/skip_import": true
+},
 "PATH:Ruler": {
 "import/skip_import": true
 },
@@ -71,6 +87,12 @@ _subresources={
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
+},
+"PATH:Tower": {
+"import/skip_import": true
+},
+"PATH:Wood": {
+"import/skip_import": true
 }
 }
 }

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dmv0ne254viex"
-path="res://.godot/imported/bottle.blend-69d3973647451761c9242b4f10967f9a.scn"
+uid="uid://d2cjqgcudtv1i"
+path="res://.godot/imported/tower.blend-cecaca2e465aacecdfdf3fd43e29f3d6.scn"
 
 [deps]
 
-source_file="res://assets/bottle.blend"
-dest_files=["res://.godot/imported/bottle.blend-69d3973647451761c9242b4f10967f9a.scn"]
+source_file="res://assets/tower.blend"
+dest_files=["res://.godot/imported/tower.blend-cecaca2e465aacecdfdf3fd43e29f3d6.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Bottle": {
+"PATH:Tower": {
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
