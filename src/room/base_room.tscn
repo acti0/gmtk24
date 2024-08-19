@@ -417,11 +417,12 @@ script = ExtResource("2_dpfvx")
 obj_name = "package"
 
 [node name="Package" type="MeshInstance3D" parent="Package_Base"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_imfwk")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Package_Base"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000213623, 0.000976563, 0.000488281)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_hbxle")
 
 [node name="Wood_Base" type="RigidBody3D" parent="."]

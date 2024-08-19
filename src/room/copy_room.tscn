@@ -484,17 +484,19 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_pa035")
 
 [node name="Package" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28619, 1.33964, -0.0723687)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.28619, 1.33964, -0.0723687)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "package"
 
 [node name="Package" type="MeshInstance3D" parent="Package"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bkkp2")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Package"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_yespl")
 
 [node name="Package_Copy" type="StaticBody3D" parent="."]
@@ -503,10 +505,12 @@ script = ExtResource("2_mc1kw")
 obj_name = "package"
 
 [node name="Package" type="MeshInstance3D" parent="Package_Copy"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_bkkp2")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Package_Copy"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_yespl")
 
 [node name="Wood" type="StaticBody3D" parent="."]
