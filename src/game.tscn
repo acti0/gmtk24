@@ -131,7 +131,7 @@ grow_vertical = 0
 layout_mode = 2
 text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
 
-This game uses Godot State Charts by derkork"
+External assets: This game uses Godot State Charts by derkork"
 horizontal_alignment = 1
 
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]

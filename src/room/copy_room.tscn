@@ -1,19 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://dgwq86i7ko56v"]
+[gd_scene load_steps=18 format=3 uid="uid://dgwq86i7ko56v"]
 
 [ext_resource type="Script" path="res://src/items/obj_shrinkable.gd" id="1_4okm5"]
 [ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_mc1kw"]
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="3_l0xvx"]
-[ext_resource type="PackedScene" uid="uid://cpm8vqrf0wt4b" path="res://assets/dice6.blend" id="4_rfbpq"]
-[ext_resource type="PackedScene" uid="uid://cfg8aegwxmgrt" path="res://assets/book.blend" id="5_t316j"]
+[ext_resource type="Texture2D" uid="uid://ctgxpmy5altmn" path="res://assets/textures/ruler.png" id="4_y7kqs"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_xhghb"]
-size = Vector3(2, 1, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ord85"]
-albedo_color = Color(1, 0.576471, 1, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_d0qqg"]
-points = PackedVector3Array(-1, -0.5, -1, -1, 0.5, -1, 1, -0.5, -1, -1, -0.5, 1, -1, 0.5, 1, 1, 0.5, -1, 1, -0.5, 1, 1, 0.5, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pth6j"]
+height = 0.999287
+radius = 1.19326
 
 [sub_resource type="BoxMesh" id="BoxMesh_irb2p"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -64,26 +58,58 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_pe21m")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ewcv"]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("4_y7kqs")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c804e"]
+_surfaces = [{
+"aabb": AABB(-0.135, -0.0015, -0.015, 0.27, 0.003, 0.03001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 233, 255, 0, 0, 0, 0, 255, 255, 233, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 233, 255, 0, 0, 255, 255, 255, 255, 233, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ge2on"]
+resource_name = "ruler_Cube_012"
+_surfaces = [{
+"aabb": AABB(-0.135, -0.0015, -0.015, 0.27, 0.003, 0.03001),
+"attribute_data": PackedByteArray(156, 134, 205, 186, 156, 134, 205, 186, 156, 134, 205, 186, 137, 137, 140, 187, 243, 127, 255, 255, 137, 137, 140, 187, 186, 133, 206, 190, 186, 133, 206, 190, 186, 133, 206, 190, 0, 128, 0, 128, 2, 128, 7, 128, 0, 128, 0, 128, 221, 134, 241, 207, 221, 134, 241, 207, 221, 134, 241, 207, 241, 140, 223, 247, 239, 255, 201, 254, 241, 140, 223, 247, 166, 133, 252, 208, 166, 133, 252, 208, 166, 133, 252, 208, 0, 128, 19, 255, 255, 255, 209, 126, 0, 128, 19, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_1ewcv"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00054, 2.01442, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 233, 255, 148, 243, 0, 0, 0, 0, 233, 255, 205, 194, 0, 0, 0, 0, 233, 255, 105, 194, 0, 0, 255, 255, 233, 255, 169, 243, 0, 0, 255, 255, 233, 255, 255, 191, 0, 0, 255, 255, 233, 255, 46, 194, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 53, 195, 0, 0, 0, 0, 0, 0, 36, 192, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 22, 192, 255, 255, 0, 0, 233, 255, 58, 255, 255, 255, 0, 0, 233, 255, 117, 202, 255, 255, 0, 0, 233, 255, 235, 255, 255, 255, 255, 255, 233, 255, 79, 255, 255, 255, 255, 255, 233, 255, 255, 191, 255, 255, 255, 255, 233, 255, 230, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 41, 203, 255, 255, 0, 0, 0, 0, 145, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 139, 255, 255, 255, 255, 255, 137, 22, 19, 173, 199, 170, 154, 234, 255, 255, 255, 255, 222, 255, 15, 128, 69, 169, 91, 235, 143, 126, 143, 254, 156, 23, 56, 175, 164, 141, 44, 249, 146, 126, 146, 254, 222, 255, 15, 128, 15, 139, 118, 250, 255, 255, 255, 255, 118, 34, 236, 196, 21, 0, 245, 63, 255, 255, 255, 255, 222, 255, 15, 128, 27, 0, 241, 63, 183, 255, 183, 127, 38, 35, 75, 198, 120, 0, 195, 63, 179, 255, 180, 127, 222, 255, 15, 128, 127, 0, 192, 63)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c804e")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ys6fn"]
+points = PackedVector3Array(-0.135, -0.0015, -0.015, -0.135, 0.0015, -0.015, 0.135, -0.0015, -0.015, -0.135, -0.0015, 0.015, -0.135, 0.0015, 0.015, 0.135, 0.0015, -0.015, 0.135, -0.0015, 0.015, 0.135, 0.0015, 0.015)
+
 [node name="CopyRoom" type="Node3D"]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="level" parent="." instance=ExtResource("3_l0xvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Static" type="Node3D" parent="."]
-visible = false
-
-[node name="Ground" type="StaticBody3D" parent="Static"]
-visible = false
+[node name="GroundInCaseLevelFails" type="StaticBody3D" parent="."]
 collision_mask = 0
-metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground"]
-mesh = SubResource("BoxMesh_xhghb")
-surface_material_override/0 = SubResource("StandardMaterial3D_ord85")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground"]
-shape = SubResource("ConvexPolygonShape3D_d0qqg")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GroundInCaseLevelFails"]
+shape = SubResource("CylinderShape3D_pth6j")
 
 [node name="Cube" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.458, 0.6, 0.292)
@@ -109,14 +135,8 @@ mesh = SubResource("BoxMesh_3t571")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_Copy"]
 shape = SubResource("ConvexPolygonShape3D_dreew")
 
-[node name="dice6" parent="." instance=ExtResource("4_rfbpq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-
-[node name="book" parent="." instance=ExtResource("5_t316j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.514688, 0.7)
-
 [node name="Bridge" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705651, 0.7774)
+transform = Transform3D(-0.0138051, 0, 0.999905, 0, 1, 0, -0.999905, 0, -0.0138051, 1.46178, 0.705793, -0.0223299)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
@@ -140,6 +160,19 @@ shape = SubResource("ConcavePolygonShape3D_sjood")
 [node name="Bridge" type="MeshInstance3D" parent="Bridge_Copy"]
 mesh = SubResource("ArrayMesh_vod3j")
 skeleton = NodePath("")
+
+[node name="Ruler" type="StaticBody3D" parent="."]
+transform = Transform3D(0.320139, -0.77537, 0.544346, 0.924313, 0.381635, 0, -0.207742, 0.503146, 0.838861, -0.399506, 0.625355, -0.593264)
+collision_layer = 33
+collision_mask = 0
+script = ExtResource("1_4okm5")
+
+[node name="Ruler" type="MeshInstance3D" parent="Ruler"]
+mesh = SubResource("ArrayMesh_ge2on")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ruler"]
+shape = SubResource("ConvexPolygonShape3D_ys6fn")
 
 [node name="Blueprint" type="Node3D" parent="."]
 

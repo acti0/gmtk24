@@ -31,6 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
+"PATH:Bridge": {
+"import/skip_import": true
+},
 "PATH:Ground": {
 "generate/physics": true,
 "physics/mask": 0,
@@ -57,6 +60,14 @@ _subresources={
 "physics/shape_type": 2
 },
 "PATH:Mountain E": {
+"generate/physics": true,
+"physics/mask": 0,
+"physics/shape_type": 2
+},
+"PATH:Ruler": {
+"import/skip_import": true
+},
+"PATH:Stairs": {
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2

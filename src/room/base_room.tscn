@@ -1,17 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1lfv6vlh0p8t"]
+[gd_scene load_steps=11 format=3 uid="uid://c1lfv6vlh0p8t"]
 
 [ext_resource type="Script" path="res://src/room/base_room.gd" id="1_q81p4"]
 [ext_resource type="Script" path="res://src/items/obj_base.gd" id="2_dpfvx"]
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="3_30e00"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kg2u8"]
-size = Vector3(2, 1, 2)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6ixq"]
-albedo_color = Color(0.552941, 0.576471, 1, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_15qle"]
-points = PackedVector3Array(-1, -0.5, -1, -1, 0.5, -1, 1, -0.5, -1, -1, -0.5, 1, -1, 0.5, 1, 1, 0.5, -1, 1, -0.5, 1, 1, 0.5, 1)
+[ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="4_mbdma"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnaub"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -53,34 +45,14 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_glger")
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_lla8k"]
-points = PackedVector3Array(0.291352, -0.00489285, 0.104857, -0.0546286, -0.0412976, -0.104552, -0.0546286, 0.00421904, -0.104552, -0.0546286, -0.0412976, 0.104857, 0.283831, -0.0492219, -0.1, -0.0546286, 0.00421904, 0.104857, 0.200285, 0.00421904, -0.104552, 0.283328, -0.0491424, 0.1, 0.291352, -0.00489285, -0.104552, 0.100209, -0.0504095, 0.104857, 0.200285, 0.00421904, 0.104857, 0.100209, -0.0504095, -0.104552)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_65dma"]
-points = PackedVector3Array(0.136587, -0.0595214, -0.104552, 0.2868, -0.0528199, 0.0986974, 0.291352, -0.132352, 0.104857, 0.136587, -0.0504095, 0.104857, 0.2868, -0.0528199, -0.0983927, 0.236709, -0.132352, -0.104552, 0.236709, -0.132352, 0.104857, 0.291352, -0.132352, -0.104552, 0.136587, -0.0504095, -0.104552, 0.136587, -0.0595214, 0.104857)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_irqr4"]
-points = PackedVector3Array(-0.060841, 0.000634954, 0.0993615, -0.283462, -0.1278, -0.0975721, -0.28198, -0.00958318, -0.0962618, -0.0546286, -0.0413137, -0.104552, -0.236713, -0.132352, 0.104857, -0.28198, -0.00958318, 0.0965666, -0.060841, 0.000634954, -0.0990568, -0.0546286, -0.0413137, 0.104857, -0.236713, -0.132352, -0.104552, -0.283462, -0.1278, 0.0978768, -0.19664, -0.0049051, -0.090562, -0.19664, -0.0049051, 0.0908668)
+[sub_resource type="BoxShape3D" id="BoxShape3D_0lx0j"]
+size = Vector3(0.572632, 0.129913, 0.199707)
 
 [node name="BaseRoom" type="Node3D"]
 script = ExtResource("1_q81p4")
 
 [node name="level" parent="." instance=ExtResource("3_30e00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="Static" type="Node3D" parent="."]
-
-[node name="Ground" type="StaticBody3D" parent="Static"]
-visible = false
-collision_mask = 0
-metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Static/Ground"]
-mesh = SubResource("BoxMesh_kg2u8")
-surface_material_override/0 = SubResource("StandardMaterial3D_u6ixq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Static/Ground"]
-shape = SubResource("ConvexPolygonShape3D_15qle")
 
 [node name="Cube_Base" type="RigidBody3D" parent="."]
 collision_layer = 32
@@ -98,6 +70,7 @@ shape = SubResource("ConvexPolygonShape3D_qiwio")
 [node name="Bridge_Base" type="RigidBody3D" parent="."]
 collision_layer = 32
 collision_mask = 33
+collision_priority = 10.0
 freeze = true
 script = ExtResource("2_dpfvx")
 obj_name = "bridge"
@@ -106,11 +79,11 @@ obj_name = "bridge"
 mesh = SubResource("ArrayMesh_h2q6j")
 skeleton = NodePath("")
 
-[node name="@CollisionShape3D@68558" type="CollisionShape3D" parent="Bridge_Base"]
-shape = SubResource("ConvexPolygonShape3D_lla8k")
-
-[node name="@CollisionShape3D@68557" type="CollisionShape3D" parent="Bridge_Base"]
-shape = SubResource("ConvexPolygonShape3D_65dma")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge_Base"]
-shape = SubResource("ConvexPolygonShape3D_irqr4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000183105, -0.0628815, 0.0012207)
+shape = SubResource("BoxShape3D_0lx0j")
+
+[node name="GoalLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0326234, 2.13995, -1.05091)
+text = "GOAL"
+script = ExtResource("4_mbdma")

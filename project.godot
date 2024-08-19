@@ -95,6 +95,11 @@ rotate_right={
 3d_physics/layer_5="Wall"
 3d_physics/layer_6="Interactable"
 
+[physics]
+
+common/physics_ticks_per_second=90
+common/physics_jitter_fix=0.0
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
