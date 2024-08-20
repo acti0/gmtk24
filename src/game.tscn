@@ -209,32 +209,6 @@ text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
 External assets: This game uses Godot State Charts by derkork"
 horizontal_alignment = 1
 
-[node name="Tutorial" type="PanelContainer" parent="Menu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -464.0
-offset_top = -29.5
-offset_bottom = 29.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="HintLabel" type="Label" parent="Menu/PauseMenu/Tutorial"]
-layout_mode = 2
-text = "TUTORIAL
-1. Find odd objects that aren't in the bigger/smaller world
-2. You can interact (E) with objects if the crosshair turns green
-3. Shrink objects with (E)
-4. Pick up/Drop objects with (E)
-5. Rotate picked up objects with (Arrow keys)
-6. Carry them to the table in the world center and place them
-7. Get to the top of the highest mountain
-
-\"Reset Objects\" spawns found objects at the world center"
-
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
 [connection signal="pressed" from="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/ResetObjects" to="Menu/PauseMenu" method="_on_reset_objects_pressed"]

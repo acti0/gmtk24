@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://biqtui304rjot"]
+[gd_scene load_steps=41 format=3 uid="uid://biqtui304rjot"]
 
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="1_7amng"]
 [ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_r8vjk"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cdypb763oc7gr" path="res://assets/textures/bottle.png" id="6_m6unu"]
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="7_ygdc7"]
 [ext_resource type="Texture2D" uid="uid://bibmif5kmj5sq" path="res://assets/textures/wood.png" id="8_8unl3"]
+[ext_resource type="Texture2D" uid="uid://chemw0x37v20m" path="res://assets/img/tutorial.png" id="9_35jml"]
+[ext_resource type="Texture2D" uid="uid://cnmlcul2rnb2w" path="res://assets/img/controls.png" id="10_n4djq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gb3rb"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -412,3 +414,11 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wood_Copy"]
 shape = SubResource("ConcavePolygonShape3D_7g3ob")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.003372, 0, 0, 0, 0.003372, 0, 0, 0, 0.003372, 0.481539, 0.568202, -0.272272)
+texture = ExtResource("9_35jml")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.00399772, 0, 0, 0, 0.00399772, 0, 0, 0, 0.00399772, 0.570248, 0.589343, -0.272396)
+texture = ExtResource("10_n4djq")

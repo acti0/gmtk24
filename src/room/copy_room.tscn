@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dgwq86i7ko56v"]
+[gd_scene load_steps=42 format=3 uid="uid://dgwq86i7ko56v"]
 
 [ext_resource type="Script" path="res://src/items/obj_shrinkable.gd" id="1_4okm5"]
 [ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_mc1kw"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="8_dlwlh"]
 [ext_resource type="Texture2D" uid="uid://bibmif5kmj5sq" path="res://assets/textures/wood.png" id="9_e5quc"]
 [ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="10_5k5bi"]
+[ext_resource type="Texture2D" uid="uid://chemw0x37v20m" path="res://assets/img/tutorial.png" id="11_wrvct"]
+[ext_resource type="Texture2D" uid="uid://cnmlcul2rnb2w" path="res://assets/img/controls.png" id="12_kx3hp"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pth6j"]
 height = 0.999287
@@ -515,3 +517,11 @@ shape = SubResource("ConcavePolygonShape3D_kw5ww")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0326234, 2.13995, -1.05091)
 text = "GOAL"
 script = ExtResource("10_5k5bi")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.003372, 0, 0, 0, 0.003372, 0, 0, 0, 0.003372, 0.481539, 0.568202, -0.272272)
+texture = ExtResource("11_wrvct")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(0.00399772, 0, 0, 0, 0.00399772, 0, 0, 0, 0.00399772, 0.570248, 0.589343, -0.272396)
+texture = ExtResource("12_kx3hp")
