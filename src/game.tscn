@@ -52,9 +52,10 @@ grow_horizontal = 2
 [node name="FinishLabel" type="Label" parent="HUD/PanelContainer"]
 layout_mode = 2
 text = "Congratulations!
-You've reached the end - thank you for playing :)
+You've reached the end
+Thank you for playing :)
 
-(You can now enable high jumps in the pause menu)"
+(You can now enable the high jumps cheat in the pause menu)"
 horizontal_alignment = 1
 
 [node name="Menu" type="Control" parent="."]
@@ -205,8 +206,8 @@ grow_vertical = 0
 [node name="Label" type="Label" parent="Menu/PauseMenu/Info"]
 layout_mode = 2
 text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
-
-External assets: This game uses Godot State Charts by derkork"
+Special thanks to my playtesters: Ophelia & Jessie
+External assets: Godot State Charts by derkork"
 horizontal_alignment = 1
 
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]

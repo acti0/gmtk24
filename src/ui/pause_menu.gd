@@ -4,11 +4,36 @@ extends Menu
 @onready var cheats_container = %CheatsContainer
 @onready var mouse_sense_slider = %MouseSenseSlider
 
+var secret_code: Array[String] = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"]
+var secret_code_index: int = 0
+
 func _ready() -> void:
 	EventBus.game_finished.connect(_on_game_finished)
 
 func _on_game_finished() -> void:
 	cheats_container.show()
+
+## silly gimmick
+func _input(event: InputEvent) -> void:
+	var input_name: String
+	if Input.is_action_just_pressed("rotate_up"):
+		input_name = "Up"
+	if Input.is_action_just_pressed("rotate_left"):
+		input_name = "Left"
+	if Input.is_action_just_pressed("rotate_down"):
+		input_name = "Down"
+	if Input.is_action_just_pressed("rotate_right"):
+		input_name = "Right"
+	
+	if input_name:
+		if input_name == secret_code[secret_code_index]:
+			if secret_code_index == (secret_code.size() -1):
+				cheats_container.show()
+				secret_code_index = 0
+			else:
+				secret_code_index += 1
+		else:
+			secret_code_index = 0
 
 func open() -> void:
 	# Only use display actions without "ui"-prefix

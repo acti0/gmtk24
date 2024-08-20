@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dgwq86i7ko56v"]
+[gd_scene load_steps=43 format=3 uid="uid://dgwq86i7ko56v"]
 
 [ext_resource type="Script" path="res://src/items/obj_shrinkable.gd" id="1_4okm5"]
 [ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_mc1kw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="8_dlwlh"]
 [ext_resource type="Texture2D" uid="uid://bibmif5kmj5sq" path="res://assets/textures/wood.png" id="9_e5quc"]
 [ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="10_5k5bi"]
+[ext_resource type="PackedScene" uid="uid://clwrwmhq3l4xq" path="res://assets/heart.blend" id="11_523kk"]
 [ext_resource type="Texture2D" uid="uid://chemw0x37v20m" path="res://assets/img/tutorial.png" id="11_wrvct"]
 [ext_resource type="Texture2D" uid="uid://cnmlcul2rnb2w" path="res://assets/img/controls.png" id="12_kx3hp"]
 
@@ -405,14 +406,13 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_hv851")
 
 [node name="Bottle" type="StaticBody3D" parent="."]
-transform = Transform3D(-8.74227e-08, 4.37114e-08, -1, -1, 4.37114e-08, 8.74227e-08, 4.37114e-08, 1, 4.37114e-08, 0.0260279, 0.800341, -0.65395)
+transform = Transform3D(-8.74227e-08, 4.37114e-08, -1, -1, 4.37114e-08, 8.74227e-08, 4.37114e-08, 1, 4.37114e-08, 0.0260279, 0.800341, -0.611649)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "bottle"
 
 [node name="Bottle" type="MeshInstance3D" parent="Bottle"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0379, 0)
 mesh = SubResource("ArrayMesh_wrli0")
 skeleton = NodePath("")
 
@@ -514,8 +514,12 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_kw5ww")
 
 [node name="GoalLabel3D" type="Label3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0326234, 2.13995, -1.05091)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191454, 2.13995, -0.962637)
 text = "GOAL"
+script = ExtResource("10_5k5bi")
+
+[node name="heart" parent="." instance=ExtResource("11_523kk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118626, 1.69795, -1.17532)
 script = ExtResource("10_5k5bi")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -525,3 +529,12 @@ texture = ExtResource("11_wrvct")
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(0.00399772, 0, 0, 0, 0.00399772, 0, 0, 0, 0.00399772, 0.570248, 0.589343, -0.272396)
 texture = ExtResource("12_kx3hp")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109333, 1.77898, -1.16273)
+
+[node name="Secret" type="Label3D" parent="."]
+transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.06408, 1.37151, 0.49807)
+text = "Don't tell anyone, 
+but I've heard that you can also make cheats available
+by inputting the Konami-Code in the pause menu"

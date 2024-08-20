@@ -37,6 +37,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 21.1079)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 573.785, 0)
+light_energy = 0.5
 shadow_enabled = true
 shadow_opacity = 0.8
 
@@ -54,7 +55,7 @@ script = ExtResource("4_sw6lq")
 shape = SubResource("BoxShape3D_md2f2")
 
 [node name="FinishArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.4161, -20.3219)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.64663, 26.4161, -21.5839)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("6_0wmwg")
