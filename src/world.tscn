@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://8ip80bwjxl0q"]
+[gd_scene load_steps=13 format=3 uid="uid://8ip80bwjxl0q"]
 
 [ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/room/base_room.tscn" id="1_7mqfe"]
 [ext_resource type="Script" path="res://src/world.gd" id="1_tnok7"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://biqtui304rjot" path="res://src/room/copy_room_big.tscn" id="4_q0id3"]
 [ext_resource type="Script" path="res://src/death_plane.gd" id="4_sw6lq"]
 [ext_resource type="Script" path="res://src/finish_area.gd" id="6_0wmwg"]
+[ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="9_trnk1"]
 
 [sub_resource type="Environment" id="Environment_7jpiv"]
 
@@ -63,6 +64,16 @@ script = ExtResource("6_0wmwg")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="FinishArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.3763, 0)
 shape = SubResource("BoxShape3D_hw0uj")
+
+[node name="Node3D" type="Node3D" parent="."]
+process_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.2366, 0)
+script = ExtResource("9_trnk1")
+rotation_speed = 3.0
+
+[node name="MenuCamera3D" type="Camera3D" parent="Node3D" groups=["menu_camera"]]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 41.4869)
+current = true
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
 [connection signal="body_entered" from="FinishArea" to="FinishArea" method="_on_body_entered"]

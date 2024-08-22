@@ -1,0 +1,137 @@
+[gd_scene load_steps=3 format=3 uid="uid://3igecwdmttmy"]
+
+[ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="1_61hbs"]
+[ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="2_75ejg"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_61hbs")
+script = ExtResource("2_75ejg")
+
+[node name="Controls" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Controls/VBoxContainer"]
+layout_mode = 2
+text = "KEYBINDINGS"
+horizontal_alignment = 1
+
+[node name="KeyBindings" type="GridContainer" parent="Controls/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -97.5
+offset_right = 100.5
+offset_bottom = 97.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UpperMenuPart" type="PanelContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="GamePausedContainer" type="VBoxContainer" parent="Menu/UpperMenuPart"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Menu/UpperMenuPart/GamePausedContainer"]
+layout_mode = 2
+text = "GAME PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="Menu/UpperMenuPart/GamePausedContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Resume"
+
+[node name="LowerMenuPart" type="PanelContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="OptionsContainer" type="VBoxContainer" parent="Menu/LowerMenuPart"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="ResetObjects" type="Button" parent="Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset Objects"
+
+[node name="MouseSenseContainer" type="HBoxContainer" parent="Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
+layout_mode = 2
+text = "Mouse sense"
+
+[node name="MouseSenseSlider" type="HSlider" parent="Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.1
+max_value = 1.3
+step = 0.05
+value = 1.0
+scrollable = false
+tick_count = 5
+ticks_on_borders = true
+
+[node name="BigWorldContainer" type="HBoxContainer" parent="Menu/LowerMenuPart/OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show extra worlds"
+
+[node name="BigWorldCheckButton" type="CheckButton" parent="Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+button_pressed = true
+
+[node name="CheatsContainer" type="HBoxContainer" parent="Menu/LowerMenuPart/OptionsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cheats active"
+
+[node name="CheatsCheckButton" type="CheckButton" parent="Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[connection signal="pressed" from="Menu/UpperMenuPart/GamePausedContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/LowerMenuPart/OptionsContainer/ResetObjects" to="." method="_on_reset_objects_pressed"]
+[connection signal="drag_ended" from="Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer/MouseSenseSlider" to="." method="_on_mouse_sense_slider_drag_ended"]
+[connection signal="pressed" from="Menu/LowerMenuPart/OptionsContainer/BigWorldContainer/BigWorldCheckButton" to="." method="_on_big_world_check_button_pressed"]
+[connection signal="pressed" from="Menu/LowerMenuPart/OptionsContainer/CheatsContainer/CheatsCheckButton" to="." method="_on_cheats_check_button_pressed"]

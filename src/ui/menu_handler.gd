@@ -1,6 +1,15 @@
 extends Control
 
+@onready var main_menu: Menu = %MainMenu
 @onready var pause_menu: Menu = %PauseMenu
+
+var player_camera: Camera3D
+var menu_camera: Camera3D
+
+## Setup cameras
+func _ready() -> void:
+	player_camera = get_tree().get_nodes_in_group("player_camera")[0]
+	menu_camera = get_tree().get_nodes_in_group("menu_camera")[0]
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_pause"):
@@ -9,12 +18,14 @@ func _input(event: InputEvent) -> void:
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 			get_tree().paused = true
+			menu_camera.current = true
 			pause_menu.open()
 
 	if event is InputEventMouseButton and !get_tree().paused:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
-func _on_pause_menu_closed() -> void:
+## Get back into the game
+func _on_sub_menu_closed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	get_tree().paused = false
+	player_camera.current = true

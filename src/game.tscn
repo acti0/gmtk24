@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhhhk6lpv0ycl"]
+[gd_scene load_steps=9 format=3 uid="uid://dhhhk6lpv0ycl"]
 
+[ext_resource type="Script" path="res://src/game.gd" id="1_btj7o"]
 [ext_resource type="Script" path="res://src/ui/menu_handler.gd" id="2_36wd4"]
 [ext_resource type="Script" path="res://src/ui/hud.gd" id="2_62bv6"]
-[ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="2_alb84"]
 [ext_resource type="Texture2D" uid="uid://cqnaayatiemio" path="res://assets/img/crosshair_black.png" id="2_igaed"]
 [ext_resource type="PackedScene" uid="uid://8ip80bwjxl0q" path="res://src/world.tscn" id="2_ma3x8"]
 [ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="3_mo1xt"]
+[ext_resource type="PackedScene" uid="uid://3igecwdmttmy" path="res://src/ui/pause_menu.tscn" id="6_v4syf"]
+[ext_resource type="PackedScene" uid="uid://dvk755ts3jsxa" path="res://src/ui/main_menu.tscn" id="8_fw5lm"]
 
 [node name="Game" type="Node"]
+script = ExtResource("1_btj7o")
 
 [node name="World2" parent="." instance=ExtResource("2_ma3x8")]
 
@@ -67,159 +70,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+theme = ExtResource("3_mo1xt")
 script = ExtResource("2_36wd4")
 
-[node name="PauseMenu" type="Control" parent="Menu"]
+[node name="PauseMenu" parent="Menu" instance=ExtResource("6_v4syf")]
 unique_name_in_owner = true
-process_mode = 2
-visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_mo1xt")
-script = ExtResource("2_alb84")
 
-[node name="Controls" type="PanelContainer" parent="Menu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -20.0
-offset_right = 40.0
-offset_bottom = 20.0
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PauseMenu/Controls"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Controls/VBoxContainer"]
-layout_mode = 2
-text = "KEYBINDINGS"
-horizontal_alignment = 1
-
-[node name="KeyBindings" type="GridContainer" parent="Menu/PauseMenu/Controls/VBoxContainer"]
+[node name="MainMenu" parent="Menu" instance=ExtResource("8_fw5lm")]
 unique_name_in_owner = true
-layout_mode = 2
-columns = 2
-
-[node name="Menu" type="VBoxContainer" parent="Menu/PauseMenu"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.5
-offset_top = -97.5
-offset_right = 100.5
-offset_bottom = 97.5
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="UpperMenuPart" type="PanelContainer" parent="Menu/PauseMenu/Menu"]
-layout_mode = 2
-
-[node name="GamePausedContainer" type="VBoxContainer" parent="Menu/PauseMenu/Menu/UpperMenuPart"]
-layout_mode = 2
-
-[node name="Title" type="Label" parent="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer"]
-layout_mode = 2
-text = "GAME PAUSED"
-horizontal_alignment = 1
-
-[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Resume"
-
-[node name="LowerMenuPart" type="PanelContainer" parent="Menu/PauseMenu/Menu"]
-layout_mode = 2
-
-[node name="OptionsContainer" type="VBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
-layout_mode = 2
-text = "OPTIONS"
-horizontal_alignment = 1
-
-[node name="ResetObjects" type="Button" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Reset Objects"
-
-[node name="MouseSenseContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
-layout_mode = 2
-text = "Mouse sense"
-
-[node name="MouseSenseSlider" type="HSlider" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-min_value = 0.1
-max_value = 1.3
-step = 0.05
-value = 1.0
-scrollable = false
-tick_count = 5
-ticks_on_borders = true
-
-[node name="BigWorldContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Show extra worlds"
-
-[node name="BigWorldCheckButton" type="CheckButton" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-button_pressed = true
-
-[node name="CheatsContainer" type="HBoxContainer" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cheats active"
-
-[node name="CheatsCheckButton" type="CheckButton" parent="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="Info" type="PanelContainer" parent="Menu/PauseMenu"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Label" type="Label" parent="Menu/PauseMenu/Info"]
-layout_mode = 2
-text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
-Special thanks to my playtesters: Ophelia & Jessie
-External assets: Godot State Charts by derkork"
-horizontal_alignment = 1
-
-[connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_closed"]
-[connection signal="pressed" from="Menu/PauseMenu/Menu/UpperMenuPart/GamePausedContainer/ResumeButton" to="Menu/PauseMenu" method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/ResetObjects" to="Menu/PauseMenu" method="_on_reset_objects_pressed"]
-[connection signal="drag_ended" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer/MouseSenseSlider" to="Menu/PauseMenu" method="_on_mouse_sense_slider_drag_ended"]
-[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/BigWorldContainer/BigWorldCheckButton" to="Menu/PauseMenu" method="_on_big_world_check_button_pressed"]
-[connection signal="pressed" from="Menu/PauseMenu/Menu/LowerMenuPart/OptionsContainer/CheatsContainer/CheatsCheckButton" to="Menu/PauseMenu" method="_on_cheats_check_button_pressed"]
+[connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_sub_menu_closed"]
+[connection signal="closed" from="Menu/MainMenu" to="Menu" method="_on_sub_menu_closed"]
