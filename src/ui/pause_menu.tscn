@@ -5,7 +5,6 @@
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +66,12 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Resume"
+
+[node name="MainMenuButton" type="Button" parent="Menu/UpperMenuPart/GamePausedContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
 
 [node name="LowerMenuPart" type="PanelContainer" parent="Menu"]
 layout_mode = 2
@@ -131,6 +136,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [connection signal="pressed" from="Menu/UpperMenuPart/GamePausedContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/UpperMenuPart/GamePausedContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Menu/LowerMenuPart/OptionsContainer/ResetObjects" to="." method="_on_reset_objects_pressed"]
 [connection signal="drag_ended" from="Menu/LowerMenuPart/OptionsContainer/MouseSenseContainer/MouseSenseSlider" to="." method="_on_mouse_sense_slider_drag_ended"]
 [connection signal="pressed" from="Menu/LowerMenuPart/OptionsContainer/BigWorldContainer/BigWorldCheckButton" to="." method="_on_big_world_check_button_pressed"]

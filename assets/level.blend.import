@@ -66,6 +66,12 @@ _subresources={
 "physics/mask": 0,
 "physics/shape_type": 2
 },
+"PATH:Book": {
+"import/skip_import": true
+},
+"PATH:Bridge": {
+"import/skip_import": true
+},
 "PATH:Chest": {
 "generate/physics": true,
 "physics/mask": 0,
@@ -77,11 +83,6 @@ _subresources={
 "physics/shape_type": 2
 },
 "PATH:Ground": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:Heart": {
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
@@ -116,6 +117,18 @@ _subresources={
 "physics/mask": 0,
 "physics/shape_type": 2
 },
+"PATH:Mountain F": {
+"generate/physics": true,
+"import/skip_import": true,
+"physics/shape_type": 2
+},
+"PATH:Mountain G": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:Package": {
+"import/skip_import": true
+},
 "PATH:Player": {
 "import/skip_import": true
 },
@@ -143,6 +156,12 @@ _subresources={
 "generate/physics": true,
 "physics/mask": 0,
 "physics/shape_type": 2
+},
+"PATH:Tower": {
+"import/skip_import": true
+},
+"PATH:Wood": {
+"import/skip_import": true
 },
 "PATH:tile": {
 "generate/physics": true,

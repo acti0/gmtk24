@@ -320,6 +320,8 @@ collision_mask = 33
 collision_priority = 10.0
 freeze = true
 continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "ruler"
 

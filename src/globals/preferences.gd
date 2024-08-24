@@ -1,5 +1,9 @@
 extends Node
 
+'''
+All settings that can be adjusted
+'''
+
 signal cheats_changed
 
 @export var mouse_sensitivity: float = 1

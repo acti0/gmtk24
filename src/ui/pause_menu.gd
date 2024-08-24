@@ -1,5 +1,7 @@
 extends Menu
 
+signal switch_menu
+
 @onready var key_bind_display: GridContainer = %KeyBindings
 @onready var cheats_container = %CheatsContainer
 @onready var mouse_sense_slider = %MouseSenseSlider
@@ -69,7 +71,11 @@ func _on_big_world_check_button_pressed() -> void:
 	EventBus.big_world_toggled.emit()
 
 func _on_cheats_check_button_pressed() -> void:
-	Global.cheats_active = !Global.cheats_active
+	Preferences.cheats_active = !Preferences.cheats_active
 
 func _on_mouse_sense_slider_drag_ended(value_changed: bool) -> void:
-	Global.mouse_sensitivity = mouse_sense_slider.value
+	Preferences.mouse_sensitivity = mouse_sense_slider.value
+
+func _on_main_menu_button_pressed() -> void:
+	hide()
+	switch_menu.emit()

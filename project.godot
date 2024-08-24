@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://src/globals/event_bus.gd"
-Global="*res://src/globals/global.gd"
+Preferences="*res://src/globals/preferences.gd"
 
 [editor_plugins]
 
@@ -97,6 +97,7 @@ rotate_right={
 common/physics_ticks_per_second=90
 common/max_physics_steps_per_frame=16
 common/physics_jitter_fix=0.0
+3d/solver/solver_iterations=32
 
 [rendering]
 

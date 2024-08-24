@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dgwq86i7ko56v"]
+[gd_scene load_steps=46 format=3 uid="uid://dgwq86i7ko56v"]
 
 [ext_resource type="Script" path="res://src/items/obj_shrinkable.gd" id="1_4okm5"]
 [ext_resource type="Script" path="res://src/items/obj_copy.gd" id="2_mc1kw"]
@@ -9,10 +9,23 @@
 [ext_resource type="Texture2D" uid="uid://cdypb763oc7gr" path="res://assets/textures/bottle.png" id="7_5eqoj"]
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="8_dlwlh"]
 [ext_resource type="Texture2D" uid="uid://bibmif5kmj5sq" path="res://assets/textures/wood.png" id="9_e5quc"]
-[ext_resource type="Script" path="res://src/room/level/label_rotate.gd" id="10_5k5bi"]
+[ext_resource type="Script" path="res://src/room/rotate.gd" id="10_42gkc"]
 [ext_resource type="PackedScene" uid="uid://clwrwmhq3l4xq" path="res://assets/heart.blend" id="11_523kk"]
 [ext_resource type="Texture2D" uid="uid://chemw0x37v20m" path="res://assets/img/tutorial.png" id="11_wrvct"]
 [ext_resource type="Texture2D" uid="uid://cnmlcul2rnb2w" path="res://assets/img/controls.png" id="12_kx3hp"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_1dv0v"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_im72b"]
+particle_flag_align_y = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+radial_velocity_min = 0.2
+radial_velocity_max = 0.5
+radial_velocity_curve = SubResource("CurveTexture_1dv0v")
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dx7mr"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pth6j"]
 height = 0.999287
@@ -317,6 +330,13 @@ transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 [node name="level" parent="." instance=ExtResource("3_l0xvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(-0.0138051, 0, 0.999905, 0, 1, 0, -0.999905, 0, -0.0138051, 0.536448, 0.61938, -0.0764374)
+visible = false
+visibility_aabb = AABB(-0.20719, -0.120486, -0.284037, 0.414381, 0.240972, 0.568074)
+process_material = SubResource("ParticleProcessMaterial_im72b")
+draw_pass_1 = SubResource("PlaneMesh_dx7mr")
+
 [node name="GroundInCaseLevelFails" type="StaticBody3D" parent="."]
 collision_mask = 0
 
@@ -324,16 +344,18 @@ collision_mask = 0
 shape = SubResource("CylinderShape3D_pth6j")
 
 [node name="Bridge" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.0138051, 0, 0.999905, 0, 1, 0, -0.999905, 0, -0.0138051, 1.46178, 0.705793, -0.0223299)
+transform = Transform3D(-0.0138051, 0, 0.999905, 0, 1, 0, -0.999905, 0, -0.0138051, 1.23707, 0.994604, -0.538579)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "bridge"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge"]
 shape = SubResource("ConcavePolygonShape3D_sjood")
 
 [node name="Bridge" type="MeshInstance3D" parent="Bridge"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_otd1e")
 skeleton = NodePath("")
 
@@ -341,6 +363,7 @@ skeleton = NodePath("")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "bridge"
+metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bridge_Copy"]
 shape = SubResource("ConcavePolygonShape3D_sjood")
@@ -350,14 +373,15 @@ mesh = SubResource("ArrayMesh_otd1e")
 skeleton = NodePath("")
 
 [node name="Cheese" type="StaticBody3D" parent="."]
-transform = Transform3D(-3.09086e-08, 0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, 0.707107, 0, 0.800211, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.026, 0.70563, -0.01)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "ruler"
+metadata/_edit_group_ = true
 
 [node name="Cheese" type="MeshInstance3D" parent="Cheese"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_awioi")
 skeleton = NodePath("")
 
@@ -366,9 +390,11 @@ transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_bgev6")
 
 [node name="Cheese_Copy" type="StaticBody3D" parent="."]
+collision_layer = 33
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "ruler"
+metadata/_edit_group_ = true
 
 [node name="Cheese" type="MeshInstance3D" parent="Cheese_Copy"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
@@ -385,6 +411,7 @@ collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "book"
+metadata/_edit_group_ = true
 
 [node name="Book" type="MeshInstance3D" parent="Book"]
 mesh = SubResource("ArrayMesh_eg0vm")
@@ -397,6 +424,7 @@ shape = SubResource("ConcavePolygonShape3D_hv851")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "book"
+metadata/_edit_group_ = true
 
 [node name="Book" type="MeshInstance3D" parent="Book_Copy"]
 mesh = SubResource("ArrayMesh_eg0vm")
@@ -411,6 +439,7 @@ collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "bottle"
+metadata/_edit_group_ = true
 
 [node name="Bottle" type="MeshInstance3D" parent="Bottle"]
 mesh = SubResource("ArrayMesh_wrli0")
@@ -423,6 +452,7 @@ shape = SubResource("ConcavePolygonShape3D_u1y5q")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "bottle"
+metadata/_edit_group_ = true
 
 [node name="Bottle" type="MeshInstance3D" parent="Bottle_Copy"]
 mesh = SubResource("ArrayMesh_wrli0")
@@ -437,6 +467,7 @@ collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "tower"
+metadata/_edit_group_ = true
 
 [node name="Tower" type="MeshInstance3D" parent="Tower"]
 mesh = SubResource("ArrayMesh_wjrtj")
@@ -449,6 +480,7 @@ shape = SubResource("ConcavePolygonShape3D_pa035")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "tower"
+metadata/_edit_group_ = true
 
 [node name="Tower" type="MeshInstance3D" parent="Tower_Copy"]
 mesh = SubResource("ArrayMesh_wjrtj")
@@ -463,6 +495,7 @@ collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "package"
+metadata/_edit_group_ = true
 
 [node name="Package" type="MeshInstance3D" parent="Package"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -477,6 +510,7 @@ shape = SubResource("ConcavePolygonShape3D_yespl")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "package"
+metadata/_edit_group_ = true
 
 [node name="Package" type="MeshInstance3D" parent="Package_Copy"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -488,11 +522,12 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 
 shape = SubResource("ConcavePolygonShape3D_yespl")
 
 [node name="Wood" type="StaticBody3D" parent="."]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0.71053, 1.39347, 0.598687)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.716753, 1.16923, 0.901826)
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "wood"
+metadata/_edit_group_ = true
 
 [node name="Wood" type="MeshInstance3D" parent="Wood"]
 mesh = SubResource("ArrayMesh_mq232")
@@ -505,6 +540,7 @@ shape = SubResource("ConcavePolygonShape3D_kw5ww")
 collision_mask = 0
 script = ExtResource("2_mc1kw")
 obj_name = "wood"
+metadata/_edit_group_ = true
 
 [node name="Wood" type="MeshInstance3D" parent="Wood_Copy"]
 mesh = SubResource("ArrayMesh_mq232")
@@ -516,11 +552,11 @@ shape = SubResource("ConcavePolygonShape3D_kw5ww")
 [node name="GoalLabel3D" type="Label3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.191454, 2.13995, -0.962637)
 text = "GOAL"
-script = ExtResource("10_5k5bi")
+script = ExtResource("10_42gkc")
 
 [node name="heart" parent="." instance=ExtResource("11_523kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118626, 1.69795, -1.17532)
-script = ExtResource("10_5k5bi")
+script = ExtResource("10_42gkc")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.003372, 0, 0, 0, 0.003372, 0, 0, 0, 0.003372, 0.481539, 0.568202, -0.272272)
@@ -534,7 +570,7 @@ texture = ExtResource("12_kx3hp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109333, 1.77898, -1.16273)
 
 [node name="Secret" type="Label3D" parent="."]
-transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.06408, 1.37151, 0.49807)
+transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.30182, 1.37151, -0.0106224)
 text = "Don't tell anyone, 
 but I've heard that you can also make cheats available
 by inputting the Konami-Code in the pause menu"

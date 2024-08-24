@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhhhk6lpv0ycl"]
+[gd_scene load_steps=10 format=3 uid="uid://dhhhk6lpv0ycl"]
 
 [ext_resource type="Script" path="res://src/game.gd" id="1_btj7o"]
 [ext_resource type="Script" path="res://src/ui/menu_handler.gd" id="2_36wd4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://8ip80bwjxl0q" path="res://src/world.tscn" id="2_ma3x8"]
 [ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="3_mo1xt"]
 [ext_resource type="PackedScene" uid="uid://3igecwdmttmy" path="res://src/ui/pause_menu.tscn" id="6_v4syf"]
+[ext_resource type="Texture2D" uid="uid://cdm64yurtoygr" path="res://assets/img/crosshair_green.png" id="6_w4dkq"]
 [ext_resource type="PackedScene" uid="uid://dvk755ts3jsxa" path="res://src/ui/main_menu.tscn" id="8_fw5lm"]
 
 [node name="Game" type="Node"]
@@ -24,6 +25,8 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("3_mo1xt")
 script = ExtResource("2_62bv6")
+default_crosshair = ExtResource("2_igaed")
+interactable_crosshair = ExtResource("6_w4dkq")
 
 [node name="Crosshair" type="TextureRect" parent="HUD"]
 layout_mode = 1
@@ -75,6 +78,7 @@ script = ExtResource("2_36wd4")
 
 [node name="PauseMenu" parent="Menu" instance=ExtResource("6_v4syf")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 
 [node name="MainMenu" parent="Menu" instance=ExtResource("8_fw5lm")]
@@ -82,4 +86,5 @@ unique_name_in_owner = true
 layout_mode = 1
 
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_sub_menu_closed"]
+[connection signal="switch_menu" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_switch_menu"]
 [connection signal="closed" from="Menu/MainMenu" to="Menu" method="_on_sub_menu_closed"]

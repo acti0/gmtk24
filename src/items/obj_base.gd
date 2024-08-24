@@ -8,19 +8,23 @@ func _physics_process(delta: float) -> void:
 	if global_position != prev_position:
 		EventBus.base_object_transform_changed.emit(obj_name, transform)
 	prev_position = global_position
-
-func grow() -> void:
-	pass
-	#scale = Vector3(1, 1, 1)
+	'''
+	if get_colliding_bodies().size() > 0:
+		var xy: ArrayMesh = $Cheese.mesh as ArrayMesh
+		$Cheese.mesh.surface_0.albedo_color = 0xff00ff
+	else:
+		$Cheese.mesh.surface_0.albedo_color = 0xffffff'''
 
 ## Base object can be picked up and dropped
 func interact() -> void:
 	# Dropping the object
 	if freeze:
 		print("Drop " +name)
+		set_collision_layer_value(6, true)
 		freeze = false
 	# Picking up the object
 	else:
 		print("Pick up " +name)
+		set_collision_layer_value(6, false)
 		freeze = true
 		rotation = Vector3.ZERO

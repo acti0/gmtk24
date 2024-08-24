@@ -9,7 +9,3 @@ signal game_finished
 signal reset_objects
 
 signal big_world_toggled
-
-signal cheats_toggled
-
-signal mouse_sense_changed(new_value)
