@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var reset_marker: Marker3D = $ResetMarker3D
+@onready var reset_marker: Marker3D = %ResetMarker3D
 
 ## Connect signals
 func _ready() -> void:

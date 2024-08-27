@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://8ip80bwjxl0q"]
+[gd_scene load_steps=15 format=3 uid="uid://8ip80bwjxl0q"]
 
 [ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/room/base_room.tscn" id="1_7mqfe"]
 [ext_resource type="Script" path="res://src/world.gd" id="1_tnok7"]
@@ -10,7 +10,18 @@
 [ext_resource type="Script" path="res://src/finish_area.gd" id="6_0wmwg"]
 [ext_resource type="Script" path="res://src/room/rotate.gd" id="9_bjjas"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k5l4o"]
+sky_top_color = Color(0.463719, 0.724164, 0.968517, 1)
+sky_horizon_color = Color(0.647059, 0.482353, 0.670588, 1)
+ground_bottom_color = Color(0.647059, 0.482353, 0.670588, 1)
+ground_horizon_color = Color(0.647059, 0.482353, 0.670588, 1)
+
+[sub_resource type="Sky" id="Sky_7xfx7"]
+sky_material = SubResource("ProceduralSkyMaterial_k5l4o")
+
 [sub_resource type="Environment" id="Environment_7jpiv"]
+background_mode = 2
+sky = SubResource("Sky_7xfx7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md2f2"]
 size = Vector3(100, 1, 100)
@@ -32,7 +43,6 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.021, 0)
 
 [node name="CopyRoomBig" parent="." instance=ExtResource("4_q0id3")]
 transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, -220, 0)
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("4_6xq0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 21.1079)

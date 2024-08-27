@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnr53p6hb8opr"]
+[gd_scene load_steps=13 format=3 uid="uid://bnr53p6hb8opr"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_lmaa6"]
 [ext_resource type="Script" path="res://src/player/player_controller.gd" id="1_xfp33"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_00a3i"]
+[ext_resource type="Script" path="res://src/player/player_interact.gd" id="2_60psq"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_6tv36"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_g8366"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_bdihc"]
@@ -59,6 +60,9 @@ collision_mask = 33
 [node name="ObjectMarker" type="Marker3D" parent="Neck/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="PlayerInteractFunction" type="Node3D" parent="."]
+script = ExtResource("2_60psq")
 
 [node name="PlayerController" type="Node3D" parent="." node_paths=PackedStringArray("player")]
 unique_name_in_owner = true

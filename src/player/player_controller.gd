@@ -1,7 +1,7 @@
 extends Node3D
 
 '''
-Handles all actions the player can do
+Handles all movement the player can do
 '''
 
 @export var player: CharacterBody3D
@@ -11,13 +11,9 @@ Handles all actions the player can do
 @export_range (-90, 0) var camera_lower_bounds: float = -90
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var object: RigidBody3D = null
-var prev_object_marker_posiion: Vector3 = Vector3.ZERO
 
 @onready var camera: Camera3D = %Camera3D
 @onready var neck: Node3D = %Neck
-@onready var interactable_ray: RayCast3D = %InteractableDetector
-@onready var object_marker: Marker3D = %ObjectMarker
 @onready var state_chart: StateChart = %StateChart
 
 ## Connect signals
@@ -36,42 +32,12 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
 		state_chart.send_event("jump_pressed")
 	
-	# Interaction logic
-	if Input.is_action_just_pressed("interact"):
-		if object:
-			object.interact()
-			object = null
-		elif interactable_ray.is_colliding():
-			var collider = interactable_ray.get_collider()
-			if collider is ShrinkableObject:
-				collider.interact()
-			elif collider is BaseObject:
-				object = collider
-				collider.interact()
-	
-	# Adjust held object (rotation)
-	if object:
-		if Input.is_action_just_pressed("rotate_left"):
-			object.rotation_degrees.y -= 30
-		if Input.is_action_just_pressed("rotate_right"):
-			object.rotation_degrees.y += 30
-		if Input.is_action_just_pressed("rotate_up"):
-			object.rotation_degrees.z += 30
-		if Input.is_action_just_pressed("rotate_down"):
-			object.rotation_degrees.z -= 30
-	
 	# Move camera based on mouse movement
 	if event is InputEventMouseMotion:
 		player.rotate_y(-event.relative.x * 0.01 * Preferences.mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * 0.01 * Preferences.mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(camera_lower_bounds), deg_to_rad(camera_upper_bounds))
 
-## Move held object relative to player cam
-func _physics_process(delta: float) -> void:
-	if object:
-		if object_marker.global_position != prev_object_marker_posiion:
-			object.global_position = object_marker.global_position
-		prev_object_marker_posiion = object_marker.global_position
 
 ## Process movement input
 func _process(delta: float) -> void:

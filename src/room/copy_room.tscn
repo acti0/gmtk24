@@ -377,7 +377,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.026,
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("1_4okm5")
-obj_name = "ruler"
+obj_name = "cheese"
 metadata/_edit_group_ = true
 
 [node name="Cheese" type="MeshInstance3D" parent="Cheese"]
@@ -393,7 +393,7 @@ shape = SubResource("ConcavePolygonShape3D_bgev6")
 collision_layer = 33
 collision_mask = 0
 script = ExtResource("2_mc1kw")
-obj_name = "ruler"
+obj_name = "cheese"
 metadata/_edit_group_ = true
 
 [node name="Cheese" type="MeshInstance3D" parent="Cheese_Copy"]
@@ -570,7 +570,7 @@ texture = ExtResource("12_kx3hp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109333, 1.77898, -1.16273)
 
 [node name="Secret" type="Label3D" parent="."]
-transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.30182, 1.37151, -0.0106224)
+transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.30182, 1.12923, -0.0106224)
 text = "Don't tell anyone, 
 but I've heard that you can also make cheats available
 by inputting the Konami-Code in the pause menu"

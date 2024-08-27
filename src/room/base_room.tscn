@@ -319,11 +319,12 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
 continuous_cd = true
 max_contacts_reported = 1
 contact_monitor = true
 script = ExtResource("2_dpfvx")
-obj_name = "ruler"
+obj_name = "cheese"
 
 [node name="Cheese" type="MeshInstance3D" parent="Cheese_Base"]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
@@ -339,6 +340,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "bridge"
 
@@ -355,7 +360,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
 continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "book"
 
@@ -372,6 +380,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "bottle"
 
@@ -392,6 +404,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "tower"
 
@@ -408,6 +424,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "package"
 
@@ -425,6 +445,10 @@ collision_layer = 32
 collision_mask = 33
 collision_priority = 10.0
 freeze = true
+freeze_mode = 1
+continuous_cd = true
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("2_dpfvx")
 obj_name = "wood"
 
@@ -437,12 +461,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000305176, -0.000259399, 0.
 shape = SubResource("BoxShape3D_kctsl")
 
 [node name="ResetMarker3D" type="Marker3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="TutorialWhatToDo" type="Sprite3D" parent="."]
 transform = Transform3D(0.003372, 0, 0, 0, 0.003372, 0, 0, 0, 0.003372, 0.481539, 0.568202, -0.272272)
 texture = ExtResource("10_626y8")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="TutorialControls" type="Sprite3D" parent="."]
 transform = Transform3D(0.00399772, 0, 0, 0, 0.00399772, 0, 0, 0, 0.00399772, 0.570248, 0.589343, -0.272396)
 texture = ExtResource("11_tuwvh")
