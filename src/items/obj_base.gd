@@ -33,4 +33,6 @@ func interact() -> void:
 		print("Pick up " +name)
 		set_collision_layer_value(3, false)
 		freeze = true
+		angular_velocity = Vector3.ZERO
+		linear_velocity = Vector3.ZERO
 		rotation = Vector3.ZERO

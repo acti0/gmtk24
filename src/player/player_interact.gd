@@ -21,6 +21,8 @@ func _physics_process(delta: float) -> void:
 		if (int(object.rotation_degrees.x) % 30 != 0 
 		or int(object.rotation_degrees.y) % 30 != 0 
 		or int(object.rotation_degrees.z) % 30 != 0):
+			object.angular_velocity = Vector3.ZERO
+			object.linear_velocity = Vector3.ZERO
 			object.rotation = Vector3.ZERO
 
 
