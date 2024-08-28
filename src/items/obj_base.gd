@@ -26,11 +26,11 @@ func interact() -> void:
 	# Dropping the object
 	if freeze:
 		print("Drop " +name)
-		#set_collision_layer_value(6, true)
+		set_collision_layer_value(3, true)
 		freeze = false
 	# Picking up the object
 	else:
 		print("Pick up " +name)
-		#set_collision_layer_value(6, false)
+		set_collision_layer_value(3, false)
 		freeze = true
 		rotation = Vector3.ZERO

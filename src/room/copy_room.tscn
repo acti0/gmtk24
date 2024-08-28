@@ -345,7 +345,7 @@ shape = SubResource("CylinderShape3D_pth6j")
 
 [node name="Bridge" type="StaticBody3D" parent="."]
 transform = Transform3D(-0.0138051, 0, 0.999905, 0, 1, 0, -0.999905, 0, -0.0138051, 1.23707, 0.994604, -0.538579)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "bridge"
@@ -374,7 +374,7 @@ skeleton = NodePath("")
 
 [node name="Cheese" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.026, 0.70563, -0.01)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "cheese"
@@ -407,7 +407,7 @@ shape = SubResource("ConcavePolygonShape3D_bgev6")
 
 [node name="Book" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.460337, 0.765608, -0.925102)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "book"
@@ -435,7 +435,7 @@ shape = SubResource("ConcavePolygonShape3D_hv851")
 
 [node name="Bottle" type="StaticBody3D" parent="."]
 transform = Transform3D(-8.74227e-08, 4.37114e-08, -1, -1, 4.37114e-08, 8.74227e-08, 4.37114e-08, 1, 4.37114e-08, 0.0260279, 0.800341, -0.611649)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "bottle"
@@ -463,7 +463,7 @@ shape = SubResource("ConcavePolygonShape3D_u1y5q")
 
 [node name="Tower" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.588708, 1.56706, 0.905498)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "tower"
@@ -491,7 +491,7 @@ shape = SubResource("ConcavePolygonShape3D_pa035")
 
 [node name="Package" type="StaticBody3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.28619, 1.33964, -0.0723687)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "package"
@@ -523,7 +523,7 @@ shape = SubResource("ConcavePolygonShape3D_yespl")
 
 [node name="Wood" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.716753, 1.16923, 0.901826)
-collision_layer = 33
+collision_layer = 9
 collision_mask = 0
 script = ExtResource("1_4okm5")
 obj_name = "wood"
