@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvk755ts3jsxa"]
 
 [ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="1_nfcbh"]
-[ext_resource type="Script" path="res://src/ui/main_menu.gd" id="1_plbw2"]
+[ext_resource type="Script" path="res://src/ui/menu/main_menu.gd" id="1_plbw2"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 2

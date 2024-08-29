@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=4 uid="uid://c1lfv6vlh0p8t"]
 
-[ext_resource type="Script" path="res://src/room/base_room.gd" id="1_q81p4"]
-[ext_resource type="Script" path="res://src/items/obj_base.gd" id="2_dpfvx"]
+[ext_resource type="Script" path="res://src/level/room/base_room.gd" id="1_q81p4"]
+[ext_resource type="Script" path="res://src/objects/obj_base.gd" id="2_dpfvx"]
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="3_30e00"]
 [ext_resource type="Texture2D" uid="uid://co77138x58dlk" path="res://assets/textures/cheese.png" id="4_2vsw4"]
 [ext_resource type="Texture2D" uid="uid://3kqtj0av73my" path="res://assets/textures/stone.png" id="4_x5es0"]

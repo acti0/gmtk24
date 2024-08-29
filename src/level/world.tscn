@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://8ip80bwjxl0q"]
 
-[ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/room/base_room.tscn" id="1_7mqfe"]
-[ext_resource type="Script" path="res://src/world.gd" id="1_tnok7"]
-[ext_resource type="PackedScene" uid="uid://dgwq86i7ko56v" path="res://src/room/copy_room.tscn" id="2_boyk8"]
-[ext_resource type="PackedScene" uid="uid://d1sheic6f48h7" path="res://src/room/copy_room_small.tscn" id="3_1eq4n"]
-[ext_resource type="PackedScene" uid="uid://biqtui304rjot" path="res://src/room/copy_room_big.tscn" id="4_q0id3"]
-[ext_resource type="Script" path="res://src/death_plane.gd" id="4_sw6lq"]
-[ext_resource type="Script" path="res://src/finish_area.gd" id="6_0wmwg"]
+[ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/level/room/base_room.tscn" id="1_7mqfe"]
+[ext_resource type="Script" path="res://src/level/world.gd" id="1_tnok7"]
+[ext_resource type="PackedScene" uid="uid://dgwq86i7ko56v" path="res://src/level/room/copy_room.tscn" id="2_boyk8"]
+[ext_resource type="PackedScene" uid="uid://d1sheic6f48h7" path="res://src/level/room/copy_room_small.tscn" id="3_1eq4n"]
+[ext_resource type="PackedScene" uid="uid://biqtui304rjot" path="res://src/level/room/copy_room_big.tscn" id="4_q0id3"]
+[ext_resource type="Script" path="res://src/level/death_plane.gd" id="4_sw6lq"]
+[ext_resource type="Script" path="res://src/level/finish_area.gd" id="6_0wmwg"]
 [ext_resource type="PackedScene" uid="uid://bv263hhdtch5r" path="res://src/player/player_alternate.tscn" id="6_snlv2"]
-[ext_resource type="Script" path="res://src/room/rotate.gd" id="9_bjjas"]
+[ext_resource type="Script" path="res://src/level/rotate.gd" id="9_bjjas"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k5l4o"]
 sky_top_color = Color(0.463719, 0.724164, 0.968517, 1)

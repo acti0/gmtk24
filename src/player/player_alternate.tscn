@@ -16,12 +16,12 @@ shape = SubResource("BoxShape3D_4i7b7")
 [node name="Camera3D" type="Camera3D" parent="." groups=["player_camera"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("2_ibooa")
 
 [node name="InteractableDetector" type="RayCast3D" parent="Camera3D" groups=["interactable_detector"]]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -2)
 collision_mask = 9
-script = ExtResource("2_ibooa")
 
 [node name="ObjectMarker" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true

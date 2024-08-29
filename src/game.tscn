@@ -4,11 +4,11 @@
 [ext_resource type="Script" path="res://src/ui/menu_handler.gd" id="2_36wd4"]
 [ext_resource type="Script" path="res://src/ui/hud.gd" id="2_62bv6"]
 [ext_resource type="Texture2D" uid="uid://cqnaayatiemio" path="res://assets/img/crosshair_black.png" id="2_igaed"]
-[ext_resource type="PackedScene" uid="uid://8ip80bwjxl0q" path="res://src/world.tscn" id="2_ma3x8"]
+[ext_resource type="PackedScene" uid="uid://8ip80bwjxl0q" path="res://src/level/world.tscn" id="2_ma3x8"]
 [ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="3_mo1xt"]
-[ext_resource type="PackedScene" uid="uid://3igecwdmttmy" path="res://src/ui/pause_menu.tscn" id="6_v4syf"]
+[ext_resource type="PackedScene" uid="uid://3igecwdmttmy" path="res://src/ui/menu/pause_menu.tscn" id="6_v4syf"]
 [ext_resource type="Texture2D" uid="uid://cdm64yurtoygr" path="res://assets/img/crosshair_green.png" id="6_w4dkq"]
-[ext_resource type="PackedScene" uid="uid://dvk755ts3jsxa" path="res://src/ui/main_menu.tscn" id="8_fw5lm"]
+[ext_resource type="PackedScene" uid="uid://dvk755ts3jsxa" path="res://src/ui/menu/main_menu.tscn" id="8_fw5lm"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_btj7o")
