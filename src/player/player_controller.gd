@@ -13,7 +13,6 @@ Handles all movement the player can do
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera: Camera3D = %Camera3D
-@onready var neck: Node3D = %Neck
 @onready var state_chart: StateChart = %StateChart
 
 ## Connect signals
@@ -40,10 +39,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 ## Process movement input
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	
-	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (player.transform.basis * Vector3(input_dir.x, 0, input_dir.y))
 	if direction:
 		player.velocity.x = direction.x * speed * player.scale.x
 		player.velocity.z = direction.z * speed * player.scale.z
@@ -51,12 +50,14 @@ func _process(delta: float) -> void:
 		player.velocity.x = move_toward(player.velocity.x, 0, speed)
 		player.velocity.z = move_toward(player.velocity.z, 0, speed)
 	
+	player.move_and_slide()
+	
 	if player.is_on_floor():
 		state_chart.send_event("ground_touched")
 	else:
 		state_chart.send_event("in_air")
 	
-	player.move_and_slide()
+	
 
 ## Apply jump velocity
 func _on_jump_state_entered() -> void:

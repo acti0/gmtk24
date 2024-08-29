@@ -92,11 +92,7 @@ rotate_right={
 
 [physics]
 
-common/physics_ticks_per_second=90
-common/max_physics_steps_per_frame=16
-common/physics_jitter_fix=0.0
 3d/physics_engine="JoltPhysics3D"
-3d/solver/solver_iterations=32
 
 [rendering]
 
