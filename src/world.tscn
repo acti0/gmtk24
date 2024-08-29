@@ -45,7 +45,7 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.021, 0)
 transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, -220, 0)
 
 [node name="PlayerAlt" parent="." instance=ExtResource("6_snlv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15924, 6.95198)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27983, 4.09773)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 573.785, 0)

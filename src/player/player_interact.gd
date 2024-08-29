@@ -30,7 +30,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	# Interaction logic
 	if Input.is_action_just_pressed("interact"):
 		if object:
-			if object.get_contact_count() == 0 and interactable_ray.get_collider() == object:
+			if interactable_ray.get_collider() == object:
 				object.interact()
 				object = null
 		elif interactable_ray.is_colliding():
