@@ -39,24 +39,30 @@ text = "RESCURSIVE RESCALE"
 layout_mode = 2
 text = "Start Game"
 
-[node name="Info" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Info" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 346.5
+offset_top = 495.0
+offset_right = 805.5
+offset_bottom = 643.0
 
-[node name="Label" type="Label" parent="Info"]
+[node name="PanelContainer" type="PanelContainer" parent="Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Info/PanelContainer"]
 layout_mode = 2
 text = "Made by actio for the GMTK Gamejam 2024 [Built to Scale]
-Special thanks to my playtesters: Ophelia & Jessie
-External assets: Godot State Charts by derkork"
+Special thanks to my playtesters: Ophelia & Jessie"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="Info"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Info/PanelContainer2"]
+layout_mode = 2
+text = "External assets: 
+Godot State Charts by derkork
+Godot Jolt Physics"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

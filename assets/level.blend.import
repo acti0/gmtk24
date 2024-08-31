@@ -17,6 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
@@ -28,41 +29,13 @@ animation/import=true
 animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
 "PATH:3_tiles": {
 "generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_001": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_002": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_003": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_004": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_005": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:3_tiles_006": {
-"generate/physics": true,
+"import/skip_import": true,
 "physics/mask": 0,
 "physics/shape_type": 2
 },
@@ -137,21 +110,6 @@ _subresources={
 "physics/mask": 0,
 "physics/shape_type": 2
 },
-"PATH:Rock_001": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:Rock_002": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
-"PATH:Rock_003": {
-"generate/physics": true,
-"physics/mask": 0,
-"physics/shape_type": 2
-},
 "PATH:Stairs": {
 "generate/physics": true,
 "physics/mask": 0,
@@ -165,14 +123,14 @@ _subresources={
 },
 "PATH:tile": {
 "generate/physics": true,
+"import/skip_import": true,
 "physics/mask": 0,
 "physics/shape_type": 2
 }
 }
 }
-gltf/naming_version=1
-gltf/embedded_image_handling=1
 blender/nodes/visible=0
+blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
