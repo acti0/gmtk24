@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://ce46722reipa3"]
+
+[ext_resource type="Shader" uid="uid://cgee30dj0cyk1" path="res://src/effects/shader/grass_swaying.tres" id="1_wqfp2"]
+[ext_resource type="Shader" path="res://src/effects/shader/celshader.gdshader" id="2_rk4jd"]
+[ext_resource type="Texture2D" uid="uid://clagclp225kvw" path="res://src/effects/shader/cel_color_gradient.tres" id="3_knf24"]
+[ext_resource type="Texture2D" uid="uid://co77138x58dlk" path="res://assets/textures/cheese.png" id="4_rfknc"]
+
+[sub_resource type="Shader" id="Shader_crqgs"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.3.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_toon;
+
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+uniform sampler2D color_gradient;
+uniform sampler2D fresnel_gradient;
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03ets"]
+render_priority = 0
+shader = SubResource("Shader_crqgs")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_glc2f"]
+material = SubResource("ShaderMaterial_03ets")
+orientation = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mcdde"]
+render_priority = 0
+shader = ExtResource("1_wqfp2")
+
+[sub_resource type="BoxMesh" id="BoxMesh_tmogt"]
+material = SubResource("ShaderMaterial_mcdde")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mtiil"]
+render_priority = 0
+shader = ExtResource("2_rk4jd")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("4_rfknc")
+shader_parameter/color_gradient = ExtResource("3_knf24")
+
+[sub_resource type="SphereMesh" id="SphereMesh_reg8f"]
+material = SubResource("ShaderMaterial_mtiil")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.50522)
+mesh = SubResource("PlaneMesh_glc2f")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_tmogt")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.26104)
+mesh = SubResource("SphereMesh_reg8f")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.656646, 0.476474, 0.944699)
+visible = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.689592, 0.658255, -0.301932, 0.61193, -0.306661, 0.729041, 0.387305, -0.687502, -0.614277, 0.344178, 2.4004, 0.553001)
