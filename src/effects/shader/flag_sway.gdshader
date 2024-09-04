@@ -3,7 +3,7 @@ render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_
 
 // Vars for flag sway
 uniform sampler2D uv_offset_texture : hint_default_black;
-uniform vec2 uv_offset_scale = vec2(-0.1, 0.05);
+uniform vec2 uv_offset_scale = vec2(-0.1, 0.0);
 uniform vec2 time_scale = vec2(0.05, 0.0);
 uniform float face_distortion = 0.5;
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c1lfv6vlh0p8t"]
+[gd_scene load_steps=42 format=4 uid="uid://c1lfv6vlh0p8t"]
 
 [ext_resource type="Script" path="res://src/level/room/base_room.gd" id="1_q81p4"]
 [ext_resource type="Script" path="res://src/objects/obj_base.gd" id="2_dpfvx"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://co77138x58dlk" path="res://assets/textures/cheese.png" id="4_2vsw4"]
 [ext_resource type="Texture2D" uid="uid://3kqtj0av73my" path="res://assets/textures/stone.png" id="4_x5es0"]
 [ext_resource type="Shader" path="res://src/effects/shader/celshader.gdshader" id="4_yb1a5"]
-[ext_resource type="Texture2D" uid="uid://clagclp225kvw" path="res://src/effects/shader/cel_color_gradient.tres" id="5_31hsn"]
 [ext_resource type="Texture2D" uid="uid://dyy3ic2fncw3d" path="res://assets/textures/wanderer.png" id="6_2lyja"]
 [ext_resource type="Texture2D" uid="uid://cdypb763oc7gr" path="res://assets/textures/bottle.png" id="7_0qh1g"]
 [ext_resource type="Texture2D" uid="uid://x7fqlbfwj0we" path="res://assets/textures/package.png" id="8_in5mo"]
@@ -17,9 +16,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x7tq4"]
 render_priority = 0
 shader = ExtResource("4_yb1a5")
-shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("4_2vsw4")
-shader_parameter/color_gradient = ExtResource("5_31hsn")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k327u"]
 _surfaces = [{

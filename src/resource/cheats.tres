@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Cheats" load_steps=2 format=3 uid="uid://b0mklah5elm8v"]
+
+[ext_resource type="Script" path="res://src/resource/model/cheats.gd" id="1_rsba7"]
+
+[resource]
+script = ExtResource("1_rsba7")
+cheats_enabled = false

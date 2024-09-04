@@ -1,9 +1,9 @@
 shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_disabled, diffuse_toon, specular_toon;
 
-uniform vec4 albedo : source_color;
+global uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
-uniform sampler2D color_gradient;
+global uniform sampler2D color_gradient;
 
 // Apply albedo and texture
 void fragment() {

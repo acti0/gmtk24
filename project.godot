@@ -24,10 +24,6 @@ Preferences="*res://src/globals/preferences.gd"
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
-[global_group]
-
-audio="Every sound in the game"
-
 [input]
 
 move_forward={
@@ -102,3 +98,14 @@ rotate_right={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[shader_globals]
+
+color_gradient={
+"type": "sampler2D",
+"value": "res://src/effects/shader/cel_color_gradient.tres"
+}
+albedo={
+"type": "color",
+"value": Color(1, 1, 1, 1)
+}

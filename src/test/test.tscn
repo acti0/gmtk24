@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://cgee30dj0cyk1" path="res://src/effects/shader/grass_swaying.tres" id="1_wqfp2"]
 [ext_resource type="Shader" path="res://src/effects/shader/celshader.gdshader" id="2_rk4jd"]
 [ext_resource type="Texture2D" uid="uid://clagclp225kvw" path="res://src/effects/shader/cel_color_gradient.tres" id="3_knf24"]
-[ext_resource type="Texture2D" uid="uid://co77138x58dlk" path="res://assets/textures/cheese.png" id="4_rfknc"]
+[ext_resource type="Texture2D" uid="uid://co77138x58dlk" path="res://assets/textures/cheese.png" id="5_6wbg2"]
 [ext_resource type="Script" path="res://src/objects/obj_base.gd" id="6_4cm7y"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tq7sh"]
@@ -40,9 +40,7 @@ material = SubResource("ShaderMaterial_mcdde")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mtiil"]
 render_priority = 0
 shader = ExtResource("2_rk4jd")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("4_rfknc")
-shader_parameter/color_gradient = ExtResource("3_knf24")
+shader_parameter/texture_albedo = ExtResource("5_6wbg2")
 
 [sub_resource type="SphereMesh" id="SphereMesh_reg8f"]
 material = SubResource("ShaderMaterial_mtiil")
@@ -50,9 +48,7 @@ material = SubResource("ShaderMaterial_mtiil")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksgmw"]
 render_priority = 0
 shader = ExtResource("2_rk4jd")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/texture_albedo = ExtResource("4_rfknc")
-shader_parameter/color_gradient = ExtResource("3_knf24")
+shader_parameter/texture_albedo = ExtResource("5_6wbg2")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pmv2n"]
 _surfaces = [{
@@ -109,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.656646, 0.476474, 0.944699
 visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.689592, 0.658255, -0.301932, 0.61193, -0.306661, 0.729041, 0.387305, -0.687502, -0.614277, 0.344178, 2.4004, 0.553001)
+transform = Transform3D(0.689592, 0.658256, -0.301932, 0.624505, -0.329416, 0.708151, 0.366683, -0.676893, -0.638247, 0.344178, 2.4004, 0.553001)
 
 [node name="Cheese_Base" type="RigidBody3D" parent="."]
 collision_layer = 12

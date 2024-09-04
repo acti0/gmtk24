@@ -11,7 +11,7 @@ var prev_object_marker_posiion: Vector3 = Vector3.ZERO
 @onready var object_marker: Marker3D = %ObjectMarker
 
 ## Move held object relative to player cam
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if object:
 		if object_marker.global_position != prev_object_marker_posiion:
 			object.global_position = object_marker.global_position
@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 			object.rotation = Vector3.ZERO
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	# Interaction logic
 	if Input.is_action_just_pressed("interact"):
 		if object:

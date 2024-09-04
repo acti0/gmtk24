@@ -4,19 +4,12 @@ extends Node
 All settings that can be adjusted
 '''
 
-signal cheats_changed
-
-@onready var master_bus_idx = AudioServer.get_bus_index("Master")
+var master_bus_idx = AudioServer.get_bus_index("Master")
 
 func _ready() -> void:
 	master_volume = AudioServer.get_bus_volume_db(master_bus_idx)
 
 @export var mouse_sensitivity: float = 1.0
-
-@export var cheats_active: bool = false:
-	set(new_value):
-		cheats_active = new_value
-		cheats_changed.emit()
 
 @export var master_volume: float = 0.5:
 	set(new_value):
