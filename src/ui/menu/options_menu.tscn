@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6oct4fhskab"]
+
+[ext_resource type="Script" path="res://src/ui/menu/options_menu.gd" id="1_0wo7h"]
+[ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="1_8x3ex"]
+
+[node name="Options" type="PanelContainer"]
+theme = ExtResource("1_8x3ex")
+script = ExtResource("1_0wo7h")
+
+[node name="OptionsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer"]
+layout_mode = 2
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="ResetObjects" type="Button" parent="OptionsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Reset Objects"
+
+[node name="MouseSenseContainer" type="HBoxContainer" parent="OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/MouseSenseContainer"]
+layout_mode = 2
+text = "Mouse sense"
+
+[node name="MouseSenseSlider" type="HSlider" parent="OptionsContainer/MouseSenseContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 1.3
+step = 0.05
+value = 1.0
+scrollable = false
+
+[node name="BigWorldContainer" type="HBoxContainer" parent="OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Show extra worlds"
+
+[node name="BigWorldCheckButton" type="CheckButton" parent="OptionsContainer/BigWorldContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+button_pressed = true
+
+[node name="Volume" type="HBoxContainer" parent="OptionsContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsContainer/Volume"]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="OptionsContainer/Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+
+[node name="VolumeValue" type="Label" parent="OptionsContainer/Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "[value]"
+
+[connection signal="pressed" from="OptionsContainer/ResetObjects" to="." method="_on_reset_objects_pressed"]
+[connection signal="drag_ended" from="OptionsContainer/MouseSenseContainer/MouseSenseSlider" to="." method="_on_mouse_sense_slider_drag_ended"]
+[connection signal="pressed" from="OptionsContainer/BigWorldContainer/BigWorldCheckButton" to="." method="_on_big_world_check_button_pressed"]
+[connection signal="value_changed" from="OptionsContainer/Volume/VolumeSlider" to="." method="_on_volume_slider_value_changed"]

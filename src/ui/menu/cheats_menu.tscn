@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfs0ys7sd18ud"]
+
+[ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="1_6wyog"]
+[ext_resource type="Script" path="res://src/ui/menu/cheats_menu.gd" id="1_8otm0"]
+
+[node name="Cheats" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_6wyog")
+script = ExtResource("1_8otm0")
+
+[node name="CheatsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CheatsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "CHEATS"
+
+[node name="HighJump" type="HBoxContainer" parent="CheatsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CheatsContainer/HighJump"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "High Jump"
+
+[node name="CheatsCheckButton" type="CheckButton" parent="CheatsContainer/HighJump"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[connection signal="pressed" from="CheatsContainer/HighJump/CheatsCheckButton" to="." method="_on_cheats_check_button_pressed"]

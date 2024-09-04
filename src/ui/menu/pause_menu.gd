@@ -3,8 +3,8 @@ extends Menu
 signal switch_menu
 
 @onready var key_bind_display: GridContainer = %KeyBindings
-@onready var cheats_container = %CheatsContainer
-@onready var mouse_sense_slider = %MouseSenseSlider
+@onready var options = %Options
+@onready var cheats_menu = %Cheats
 
 var secret_code: Array[String] = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"]
 var secret_code_index: int = 0
@@ -32,7 +32,7 @@ func _ready() -> void:
 
 ## Show cheats
 func _on_game_finished() -> void:
-	cheats_container.show()
+	cheats_menu.show()
 
 ## Check for secret code inputs
 func _input(event: InputEvent) -> void:
@@ -49,7 +49,7 @@ func _input(event: InputEvent) -> void:
 	if input_name:
 		if input_name == secret_code[secret_code_index]:
 			if secret_code_index == (secret_code.size() -1):
-				cheats_container.show()
+				cheats_menu.show()
 				secret_code_index = 0
 			else:
 				secret_code_index += 1
@@ -63,18 +63,6 @@ func open() -> void:
 ## Resume game
 func _on_resume_button_pressed() -> void:
 	close()
-
-func _on_reset_objects_pressed() -> void:
-	EventBus.reset_objects.emit()
-
-func _on_big_world_check_button_pressed() -> void:
-	EventBus.big_world_toggled.emit()
-
-func _on_cheats_check_button_pressed() -> void:
-	Preferences.cheats_active = !Preferences.cheats_active
-
-func _on_mouse_sense_slider_drag_ended(value_changed: bool) -> void:
-	Preferences.mouse_sensitivity = mouse_sense_slider.value
 
 func _on_main_menu_button_pressed() -> void:
 	hide()

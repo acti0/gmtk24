@@ -24,6 +24,10 @@ Preferences="*res://src/globals/preferences.gd"
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
+[global_group]
+
+audio="Every sound in the game"
+
 [input]
 
 move_forward={

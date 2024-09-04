@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhhhk6lpv0ycl"]
+[gd_scene load_steps=12 format=3 uid="uid://dhhhk6lpv0ycl"]
 
 [ext_resource type="Script" path="res://src/game.gd" id="1_btj7o"]
 [ext_resource type="Script" path="res://src/ui/menu_handler.gd" id="2_36wd4"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://3igecwdmttmy" path="res://src/ui/menu/pause_menu.tscn" id="6_v4syf"]
 [ext_resource type="Texture2D" uid="uid://cdm64yurtoygr" path="res://assets/img/crosshair_green.png" id="6_w4dkq"]
 [ext_resource type="PackedScene" uid="uid://dvk755ts3jsxa" path="res://src/ui/menu/main_menu.tscn" id="8_fw5lm"]
+[ext_resource type="AudioStream" uid="uid://dnkyy7t5jhpog" path="res://assets/audio/Song_in_the_trees.ogg" id="10_jh12j"]
+[ext_resource type="Script" path="res://src/effects/bgm_audio.gd" id="11_f5cjv"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_btj7o")
@@ -85,6 +87,12 @@ layout_mode = 1
 unique_name_in_owner = true
 layout_mode = 1
 
+[node name="BGMAudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["audio"]]
+process_mode = 3
+stream = ExtResource("10_jh12j")
+script = ExtResource("11_f5cjv")
+
 [connection signal="closed" from="Menu/PauseMenu" to="Menu" method="_on_sub_menu_closed"]
 [connection signal="switch_menu" from="Menu/PauseMenu" to="Menu" method="_on_pause_menu_switch_menu"]
 [connection signal="closed" from="Menu/MainMenu" to="Menu" method="_on_sub_menu_closed"]
+[connection signal="closed" from="Menu/MainMenu" to="BGMAudioStreamPlayer" method="_on_main_menu_closed"]

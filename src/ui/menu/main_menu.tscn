@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvk755ts3jsxa"]
+[gd_scene load_steps=4 format=3 uid="uid://dvk755ts3jsxa"]
 
 [ext_resource type="Theme" uid="uid://d0pm7w4ss66jb" path="res://src/theme/game_theme.tres" id="1_nfcbh"]
 [ext_resource type="Script" path="res://src/ui/menu/main_menu.gd" id="1_plbw2"]
+[ext_resource type="AudioStream" uid="uid://dd2t5ooabvjq4" path="res://assets/audio/Eventide.ogg" id="3_iljex"]
 
 [node name="MainMenu" type="Control"]
 process_mode = 2
@@ -40,14 +41,21 @@ layout_mode = 2
 text = "Start Game"
 
 [node name="Info" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 346.5
-offset_top = 495.0
-offset_right = 805.5
-offset_bottom = 643.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.5
+offset_top = -174.0
+offset_right = 266.5
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="Info"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Label" type="Label" parent="Info/PanelContainer"]
 layout_mode = 2
@@ -61,8 +69,14 @@ layout_mode = 2
 [node name="Label" type="Label" parent="Info/PanelContainer2"]
 layout_mode = 2
 text = "External assets: 
-Godot State Charts by derkork
-Godot Jolt Physics"
+Godot State Charts by derkork (https://github.com/derkork/godot-statecharts)
+Godot Jolt Physics (https://github.com/godot-jolt/godot-jolt)
+BGM by S.A. Eversole (https://freesound.org/people/StephieQueen/)"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." groups=["audio"]]
+stream = ExtResource("3_iljex")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

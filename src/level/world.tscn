@@ -22,6 +22,10 @@ sky_material = SubResource("ProceduralSkyMaterial_k5l4o")
 [sub_resource type="Environment" id="Environment_7jpiv"]
 background_mode = 2
 sky = SubResource("Sky_7xfx7")
+ambient_light_source = 2
+ambient_light_color = Color(0.605274, 0.605274, 0.605274, 1)
+ambient_light_energy = 0.5
+reflected_light_source = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_md2f2"]
 size = Vector3(100, 1, 100)

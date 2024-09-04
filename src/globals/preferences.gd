@@ -6,9 +6,20 @@ All settings that can be adjusted
 
 signal cheats_changed
 
-@export var mouse_sensitivity: float = 1
+@onready var master_bus_idx = AudioServer.get_bus_index("Master")
+
+func _ready() -> void:
+	master_volume = AudioServer.get_bus_volume_db(master_bus_idx)
+
+@export var mouse_sensitivity: float = 1.0
 
 @export var cheats_active: bool = false:
 	set(new_value):
 		cheats_active = new_value
 		cheats_changed.emit()
+
+@export var master_volume: float = 0.5:
+	set(new_value):
+		if new_value >= 0.0 and new_value <= 1.0:
+			AudioServer.set_bus_volume_db(master_bus_idx, linear_to_db(new_value))
+			master_volume = new_value
