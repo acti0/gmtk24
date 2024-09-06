@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CheatCode" load_steps=2 format=3 uid="uid://cun7qv7evlnxb"]
+
+[ext_resource type="Script" path="res://src/ui/menu/cheat_code.gd" id="1_7j5t6"]
+
+[resource]
+script = ExtResource("1_7j5t6")
+name = "HighJump"
+effect = "show_high_jump"
+sequence = Array[int]([1, 3, 3, 3, 4, 1, 4, 4])

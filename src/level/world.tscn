@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://8ip80bwjxl0q"]
+[gd_scene load_steps=16 format=3 uid="uid://8ip80bwjxl0q"]
 
 [ext_resource type="PackedScene" uid="uid://c1lfv6vlh0p8t" path="res://src/level/room/base_room.tscn" id="1_7mqfe"]
 [ext_resource type="Script" path="res://src/level/world.gd" id="1_tnok7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://src/level/finish_area.gd" id="6_0wmwg"]
 [ext_resource type="PackedScene" uid="uid://bv263hhdtch5r" path="res://src/player/player_alternate.tscn" id="6_snlv2"]
 [ext_resource type="Script" path="res://src/level/rotate.gd" id="9_bjjas"]
+[ext_resource type="Texture2D" uid="uid://i7luqqo7ywy8" path="res://assets/img/arrow.png" id="10_akkk4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k5l4o"]
 sky_top_color = Color(0.463719, 0.724164, 0.968517, 1)
@@ -49,7 +50,7 @@ transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.021, 0)
 transform = Transform3D(400, 0, 0, 0, 400, 0, 0, 0, 400, 0, -220, 0)
 
 [node name="PlayerAlt" parent="." instance=ExtResource("6_snlv2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27983, 4.09773)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.27983, 19.2101)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 573.785, 0)
@@ -60,8 +61,8 @@ shadow_opacity = 0.8
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_7jpiv")
 
-[node name="DeathPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+[node name="DeathPlane" type="Area3D" parent="." groups=["death_plane"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -17.9877, 0)
 collision_layer = 0
 collision_mask = 6
 monitorable = false
@@ -89,6 +90,48 @@ rotation_speed = 3.0
 [node name="MenuCamera3D" type="Camera3D" parent="MenuCameraAnchor" groups=["menu_camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 0, 41.4869)
 current = true
+
+[node name="FallResetCodeHint" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.232902, 0, -0.9725, 0, 1, 0, 0.9725, 0, 0.232902, -35.9825, 23.7366, 8.61738)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D2" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(-0.29147, 2.54811e-08, -0.95658, -8.74228e-08, -1, 0, -0.95658, 8.36269e-08, 0.29147, -35.3935, 23.7366, 10.7844)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D3" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.360209, 0, -0.932872, 0, 1, 0, 0.932872, 0, 0.360209, -34.5163, 23.7366, 13.3277)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D4" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(-0.416138, 3.63799e-08, -0.909301, -8.74228e-08, -1, 0, -0.909301, 7.94937e-08, 0.416138, -33.6442, 23.7366, 15.3971)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D5" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.466309, 0, -0.884622, 0, 1, 0, 0.884622, 0, 0.466309, -32.731, 23.7366, 17.2534)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D6" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.526214, 0, -0.850352, 0, 1, 0, 0.850352, 0, 0.526214, -31.463, 23.7366, 19.4699)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D7" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.632286, 0, -0.774735, 0, 1, 0, 0.774735, 0, 0.632286, -28.6652, 23.7366, 23.3946)
+double_sided = false
+texture = ExtResource("10_akkk4")
+
+[node name="Sprite3D8" type="Sprite3D" parent="FallResetCodeHint"]
+transform = Transform3D(0.577345, 0, -0.816501, 0, 1, 0, 0.816501, 0, 0.577345, -30.2105, 23.7366, 21.3618)
+double_sided = false
+texture = ExtResource("10_akkk4")
 
 [connection signal="body_entered" from="DeathPlane" to="DeathPlane" method="_on_body_entered"]
 [connection signal="body_entered" from="FinishArea" to="FinishArea" method="_on_body_entered"]

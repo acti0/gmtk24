@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CheatCode" load_steps=2 format=3 uid="uid://o5fj522i5abm"]
+
+[ext_resource type="Script" path="res://src/ui/menu/cheat_code.gd" id="1_pjwp8"]
+
+[resource]
+script = ExtResource("1_pjwp8")
+name = "FallReset"
+effect = "show_fall_reset"
+sequence = Array[int]([2, 1, 2, 1, 2, 2, 2, 2])

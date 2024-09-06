@@ -5,8 +5,8 @@ Alternate version of the player scene w/o State Charts
 '''
 
 @export var stats: PlayerStats = preload("res://src/resource/player_stats.tres")
-@export var cheats: Cheats = preload("res://src/resource/cheats.tres")
 
+var speed: float = stats.speed
 var grow_speed: float = 1
 var growing: bool = false
 
@@ -28,18 +28,32 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = stats.jump_velocity
-
+		velocity.y = stats.jump_velocity * scale.y
+	
+	# Handle sprinting
+	if Input.is_action_pressed("sprint"):
+		speed = stats.sprint_speed
+	else:
+		speed = stats.speed
+	
+	if stats.allow_self_growth:
+		if Input.is_action_pressed("rotate_up"):
+			scale += Vector3(1, 1, 1) * delta
+		if Input.is_action_pressed("rotate_down"):
+			scale -= Vector3(1, 1, 1) * delta
+		if Input.is_action_just_pressed("rotate_left") or Input.is_action_just_pressed("rotate_right"):
+			scale = Vector3(1, 1, 1)
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * stats.speed * scale.x
-		velocity.z = direction.z * stats.speed * scale.z
+		velocity.x = direction.x * speed * scale.x
+		velocity.z = direction.z * speed * scale.z
 	else:
-		velocity.x = move_toward(velocity.x, 0, stats.speed)
-		velocity.z = move_toward(velocity.z, 0, stats.speed)
+		velocity.x = move_toward(velocity.x, 0, speed)
+		velocity.z = move_toward(velocity.z, 0, speed)
 	
 	# Grow player back
 	if growing:

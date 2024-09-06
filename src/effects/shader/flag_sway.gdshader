@@ -16,11 +16,11 @@ uniform sampler2D color_gradient;
 void vertex() {
 	vec2 base_uv_offset = UV * uv_offset_scale;
 	base_uv_offset += TIME * time_scale;
-	
+
 	float noise = texture(uv_offset_texture, base_uv_offset).r;
 	float texture_based_offset = noise * 2.0 - 1.0;
 	texture_based_offset *= UV.x;
-	
+
 	VERTEX.y += texture_based_offset;
 	VERTEX.z += texture_based_offset * face_distortion;
 	VERTEX.x += texture_based_offset * -face_distortion;

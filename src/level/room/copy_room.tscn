@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://dgwq86i7ko56v"]
+[gd_scene load_steps=48 format=4 uid="uid://dgwq86i7ko56v"]
 
 [ext_resource type="PackedScene" uid="uid://canp6kl3ugeco" path="res://assets/level.blend" id="1_rmuwa"]
 [ext_resource type="Script" path="res://src/objects/obj_shrinkable.gd" id="2_d0nd0"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://clwrwmhq3l4xq" path="res://assets/heart.blend" id="11_p2hak"]
 [ext_resource type="Texture2D" uid="uid://chemw0x37v20m" path="res://assets/img/tutorial.png" id="12_6whuf"]
 [ext_resource type="Texture2D" uid="uid://cnmlcul2rnb2w" path="res://assets/img/controls.png" id="13_45xsc"]
+[ext_resource type="Texture2D" uid="uid://i7luqqo7ywy8" path="res://assets/img/arrow.png" id="14_umwdo"]
+[ext_resource type="Texture2D" uid="uid://qo44gdvpklkh" path="res://assets/img/hint.png" id="15_c8be1"]
 
 [sub_resource type="CurveTexture" id="CurveTexture_1dv0v"]
 
@@ -569,8 +571,54 @@ texture = ExtResource("13_45xsc")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.109333, 1.77898, -1.16273)
 
-[node name="Secret" type="Label3D" parent="."]
-transform = Transform3D(0.0175874, -0.0335189, -1.46516e-09, 0, -1.6546e-09, 0.0378527, -0.0335189, -0.0175874, -7.68768e-10, 1.30182, 1.12923, -0.0106224)
-text = "Don't tell anyone, 
-but I've heard that you can also make cheats available
-by inputting the Konami-Code in the pause menu"
+[node name="SprintCodeHint" type="Label3D" parent="."]
+transform = Transform3D(0.0187781, 0, -0.0212158, 0, 0.0283325, 0, 0.0212158, 0, 0.0187781, 0.0993251, 1.66185, -1.15329)
+text = "Try pressing
+\"Up Up Down Down Left Right Left Right\"
+in the Pause Menu"
+
+[node name="JumpCodeHint" type="Node3D" parent="."]
+
+[node name="Sprite3D3" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(0.000184307, -0.000871411, -0.0034262, 0.000148248, -0.00342593, 0.000879317, -0.00353217, -0.000189259, -0.000141872, 1.15484, 1.45792, -0.0637646)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D4" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(-0.000871411, -0.000184307, -0.0034262, -0.00342593, -0.000148248, 0.000879318, -0.000189259, 0.00353217, -0.000141872, 1.15458, 1.45772, -0.0588646)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D5" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(-0.000871411, -0.000184307, -0.0034262, -0.00342593, -0.000148248, 0.000879318, -0.000189259, 0.00353217, -0.000141872, 1.15435, 1.45753, -0.0543535)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D6" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(-0.000871411, -0.000184307, -0.0034262, -0.00342593, -0.000148248, 0.000879318, -0.000189259, 0.00353217, -0.000141872, 1.1541, 1.45733, -0.049609)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D7" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(0.000871411, 0.000184307, -0.0034262, 0.00342593, 0.000148248, 0.000879318, 0.000189259, -0.00353217, -0.000141872, 1.15385, 1.45713, -0.0449423)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D8" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(0.000184307, -0.000871411, -0.0034262, 0.000148248, -0.00342593, 0.000879317, -0.00353217, -0.000189259, -0.000141872, 1.15362, 1.45694, -0.0403534)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D9" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(0.000871411, 0.000184307, -0.0034262, 0.00342593, 0.000148248, 0.000879318, 0.000189259, -0.00353217, -0.000141872, 1.15337, 1.45674, -0.0356089)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="Sprite3D10" type="Sprite3D" parent="JumpCodeHint"]
+transform = Transform3D(0.000871411, 0.000184307, -0.0034262, 0.00342593, 0.000148248, 0.000879318, 0.000189259, -0.00353217, -0.000141872, 1.15312, 1.45654, -0.0307867)
+double_sided = false
+texture = ExtResource("14_umwdo")
+
+[node name="SizeCodeHint" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0235745, 0, -0.00360951, 0, 0.0238492, 0, 0.00360951, 0, -0.0235745, 0, 1.3415, -0.994303)
+texture = ExtResource("15_c8be1")

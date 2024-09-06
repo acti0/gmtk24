@@ -1,39 +1,47 @@
 extends Menu
 
-@export var cheats: Cheats
+@export var cheat_codes: Array[CheatCode]
+var code_amount: int = 0
 
-var secret_code: Array[String] = ["Up", "Up", "Down", "Down", "Left", "Right", "Left", "Right"]
-var secret_code_index: int = 0
+func _on_run_speed_check_button_pressed() -> void:
+	Cheats.run_speed = !Cheats.run_speed
 
-func _ready() -> void:
-	cheats.changed.connect(_on_cheats_changed)
+## Toggle high jump
+func _on_high_jump_check_button_pressed() -> void:
+	Cheats.high_jump = !Cheats.high_jump
 
-func _on_cheats_changed() -> void:
-	if cheats.cheats_visible:
-		show()
+func _on_fall_reset_check_button_pressed() -> void:
+	Cheats.toggle_death_plane()
 
-func _on_cheats_check_button_pressed() -> void:
-	cheats.high_jump = !cheats.high_jump
-
+func _on_size_change_check_button_pressed() -> void:
+	Cheats.toggle_size_change()
 
 ## Check for secret code inputs
 func _input(_event: InputEvent) -> void:
-	var input_name: String
+	var input_name: CheatCode.CODE_ACTIONS
 	if Input.is_action_just_pressed("rotate_up"):
-		input_name = "Up"
+		input_name = CheatCode.CODE_ACTIONS.Up
 	if Input.is_action_just_pressed("rotate_left"):
-		input_name = "Left"
+		input_name = CheatCode.CODE_ACTIONS.Left
 	if Input.is_action_just_pressed("rotate_down"):
-		input_name = "Down"
+		input_name = CheatCode.CODE_ACTIONS.Down
 	if Input.is_action_just_pressed("rotate_right"):
-		input_name = "Right"
+		input_name = CheatCode.CODE_ACTIONS.Right
 	
 	if input_name:
-		if input_name == secret_code[secret_code_index]:
-			if secret_code_index == (secret_code.size() -1):
-				cheats.cheats_visible = true
-				secret_code_index = 0
-			else:
-				secret_code_index += 1
-		else:
-			secret_code_index = 0
+		for code in cheat_codes:
+			if code.check_code(input_name):
+				if code.effect == "show_run_speed":
+					$CheatsContainer/RunSpeedCheckButton.visible = true
+				if code.effect == "show_high_jump":
+					$CheatsContainer/HighJumpCheckButton.visible = true
+				if code.effect == "show_fall_reset":
+					$CheatsContainer/FallResetCheckButton.visible = true
+				if code.effect == "show_size_change":
+					$CheatsContainer/SizeChangeCheckButton.visible = true
+				
+				code_amount += 1
+				$CheatsContainer/Label.text = "CHEATS (" + str(code_amount) + "/4 found)"
+				
+				if code_amount == 1:
+					visible = true

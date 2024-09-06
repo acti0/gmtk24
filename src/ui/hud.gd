@@ -21,8 +21,10 @@ func _physics_process(_delta: float) -> void:
 	if raycast.is_colliding():
 		if raycast.get_collider() is ShrinkableObject or raycast.get_collider() is BaseObject:
 			crosshair.texture = interactable_crosshair
+			$InteractHint.show()
 	else:
 		crosshair.texture = default_crosshair
+		$InteractHint.hide()
 
 ## Show the game finish message
 func _on_game_finished() -> void:
