@@ -17,7 +17,7 @@ func _ready() -> void:
 
 ## Handle pause toggle and clicking in window
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("toggle_pause"):
+	if event.is_action_pressed("toggle_pause") and !main_menu.visible:
 		if get_tree().paused:
 			pause_menu.close()
 		else:
